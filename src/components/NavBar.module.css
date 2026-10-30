@@ -1,0 +1,92 @@
+/*
+  Навигация главной — Figma node 498:1634 (Nav_menu). Всегда видна
+  (opacity не анимируется и не зависит от скролла) — единственный
+  источник переключателя темы/языка на странице, инлайн-дубликаты в
+  Hero убраны (решение от 2026-10-30, см. Hero.tsx/Hero.module.css).
+
+  Инверсия "как курсор" (Cursor.module.css): mix-blend-mode: difference
+  обязан стоять на том же элементе, что и position: fixed — иначе
+  position: fixed создаёт свой stacking context, и блендинг на дочерних
+  элементах считается не против страницы под баром, а против пустоты
+  внутри этого контекста (т.е. против ничего) — наружу идёт сырой белый
+  цвет без инверсии. Поэтому .left/.right сами fixed, без общей обёртки
+  (был баг: .bar было fixed, .left/.right с mix-blend-mode — внутри него).
+  Контент внутри — сплошной белый: difference с любым фоном даёт верный
+  инвертированный контраст, независимо от текущей темы сайта.
+*/
+.left,
+.right {
+  position: fixed;
+  top: var(--page-pad);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.left {
+  left: var(--page-pad);
+  gap: var(--space-1);
+}
+
+.right {
+  right: var(--page-pad);
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.icon {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  pointer-events: auto;
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.role {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.localeBtn {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #fff;
+  pointer-events: auto;
+}
+
+.localeBtn::before {
+  content: "";
+  position: absolute;
+  inset: -10px -4px;
+}
+
+.inactive {
+  opacity: 0.45;
+}

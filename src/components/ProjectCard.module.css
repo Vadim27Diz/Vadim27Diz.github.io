@@ -1,0 +1,68 @@
+.mediaLink {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+
+.mediaLink::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  flex: none;
+  margin: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.description {
+  margin: 0;
+}
+
+.specs {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.specs > div {
+  display: flex;
+  gap: 0.3em;
+}
+
+.specs dt,
+.specs dd {
+  margin: 0;
+}
+
+.specs dd {
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 75rem) {
+  .meta {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  .title {
+    width: 8rem;
+  }
+
+  .text {
+    flex: 1;
+  }
+}

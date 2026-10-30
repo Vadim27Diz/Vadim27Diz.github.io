@@ -1,0 +1,54 @@
+/* Grid system — from Figma skeleton (figma.com/design/5PJKgkVYGTO8pkYG8AKn2r, node 23:9) */
+
+.container {
+  width: 100%;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+
+/*
+  Три уровня, как на референсе (plyn.framer.website/piershy):
+  phone <810px — flex-column (стек); tablet 810–1199px — flex-row;
+  desktop >=1200px — CSS grid. Это не одна resize-сетка, а три
+  отдельных раскладки на разных диапазонах, см. docs/05-responsive.md.
+*/
+
+/* Hero: стек на телефоне */
+.heroGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Case row: стек на телефоне и планшете (как work-card_component у референса) */
+.caseGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 50.625rem) {
+  /* Hero на планшете: flex-row, текст 2/3 + аватар 1/3 (пропорции задаёт Hero.module.css) */
+  .heroGrid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 75rem) {
+  .heroGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 0;
+  }
+
+  .caseGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--space-2);
+    align-items: start;
+  }
+}

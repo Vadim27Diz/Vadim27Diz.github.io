@@ -1,0 +1,141 @@
+.hero {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-5);
+}
+
+/*
+  Пустой блок-распорка: раньше здесь в потоке стояли ThemeToggle + текст
+  роли, оба убраны — их теперь постоянно показывает NavBar (решение от
+  2026-10-30). min-height держит место под иконку (24px), чтобы грид
+  не схлопывался и био на мобильном стеке не наезжало на плавающий бар.
+*/
+.greeting {
+  min-height: 24px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.bio {
+  margin: 0;
+  max-width: 32rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.links a::before {
+  content: "";
+  position: absolute;
+  inset: -4px -10px;
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/*
+  RU/ENG сидит в одной строке с аватаром, слева от него (фрейм Figma
+  «Hiro» node 23:9: оба top=16, RU/ENG right=1097, аватар left=1108).
+  align-self: stretch — чтобы justify-content отвечал за выравнивание
+  вправо независимо от align-items родителя (.end).
+*/
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  align-self: stretch;
+}
+
+/*
+  Аватар по фрейму Figma «Ava» (node 68:822), контейнер 234×270:
+  Default — фон чёрный, фото сдвинуто вниз на 104px (104/270 = 38.52%), видна макушка;
+  Hover — фон серый, фото в 0,0 и видно целиком.
+  Фото — вырезанный силуэт с прозрачным фоном, поэтому фон контейнера и есть фон аватара.
+*/
+
+.avatar {
+  position: relative;
+  width: 100%;
+  max-width: 9.75rem;
+  aspect-ratio: 234 / 270;
+  overflow: hidden;
+  background: var(--color-fg);
+  transition: background-color var(--duration-base) var(--ease-default);
+}
+
+.avatar:hover {
+  background: var(--color-muted);
+}
+
+.avatarImg {
+  position: absolute;
+  left: 0;
+  top: 38.52%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transition: top var(--duration-base) var(--ease-default);
+}
+
+.avatar:hover .avatarImg {
+  top: 0;
+}
+
+.copyright {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+}
+
+@media (min-width: 50.625rem) {
+  /*
+    .greeting пустой (контент теперь только в NavBar, см. выше), но в
+    этом брейкпоинте heroGrid — flex-row: без ширины .middle (био) сразу
+    налезет на плавающий текст NavBar слева. 9rem — измеренная ширина
+    NavBar-группы (иконка+"Product Designer") с запасом.
+  */
+  .greeting {
+    flex: 0 0 9rem;
+  }
+
+  .middle {
+    flex: 2 0 0;
+    min-width: 0;
+  }
+
+  .end {
+    flex: 1 0 0;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 75rem) {
+  .end {
+    flex: none;
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,77 @@
+/* Design tokens — from Figma skeleton, see docs/02-design-tokens.md */
+
+:root {
+  /* Colors — primitives, see docs/02-design-tokens.md */
+  --grey-1000: #050505;
+  --grey-750: #6e6e6e;
+  --grey-c4: #c4c4c4;
+  --bg-light: #dddddd;
+  --bg-dark: #000000;
+  --grey-100: #e6e6e6;
+  --grey-150: #dadada;
+  --blue-link: #1414cb;
+  --blue-link-invers: #6262f6;
+  --blue-400: #3d3df4;
+
+  /* Colors — legacy, оставлены как есть до переноса компонентов на семантику выше */
+  --color-bg: var(--grey-100);
+  --color-fg: #000000;
+  --color-muted: #828282;
+  --color-surface: #ffffff;
+
+  /* Colors — semantic */
+  --color-text-primary: var(--grey-1000);
+  --color-text-secondary: var(--grey-750);
+  --color-text-primary-inverse: #ffffff;
+  --color-text-secondary-inverse: var(--grey-c4);
+  --color-link: var(--blue-link);
+  --color-link-hover: var(--blue-400);
+  --color-link-inverse: var(--blue-link-invers);
+  --color-surface-dim: var(--bg-light);
+  --color-surface-inverse: var(--bg-dark);
+  --color-surface-placeholder: var(--grey-150);
+
+  /* Typography — PT Sans (текст) + Roboto Mono (ссылки), см. docs/02-design-tokens.md для font-file setup */
+  --font-sans: "PT Sans", Arial, "Helvetica Neue", sans-serif;
+  --font-mono:
+    "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-size-base: 13px;
+  --line-height-base: 20px;
+  --line-height-heading: 19px;
+  --letter-spacing-heading: 0.13px;
+  --font-size-caption: 11px;
+  --line-height-caption: 19px;
+  --line-height-link: 21px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 438px; /* выбивается из шкалы: отступ Hero → первый кейс по макету главной */
+  --space-6: 32px; /* шаг шкалы после 24px: разрыв между ссылками нижней навигации кейса */
+  --space-7: 40px; /* ритм шапки страницы кейса */
+  --space-8: 160px; /* подвал страницы кейса: отступ до навигации и от неё до низа (Figma node 216:1257) */
+
+  /* Layout */
+  --page-pad: var(--space-3);
+
+  /* Motion, see docs/04-animations.md */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.8s;
+  --duration-slow: 0.8s;
+}
+
+/*
+  Тёмная тема — переключатель в Hero (useTheme, атрибут data-theme на <html>).
+  Экстраполировано из варианта «dark» карточки стиль-гайда (фрейм 359:228) —
+  отдельного фрейма тёмной страницы в Figma нет. Переопределяет только
+  семантические токены — компоненты используют их же, правок не требуют.
+*/
+[data-theme="dark"] {
+  --color-bg: var(--color-surface-inverse);
+  --color-text-primary: var(--color-text-primary-inverse);
+  --color-text-secondary: var(--color-text-secondary-inverse);
+  --color-link: var(--color-link-inverse);
+}

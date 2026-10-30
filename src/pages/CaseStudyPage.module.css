@@ -1,0 +1,74 @@
+/*
+  Поля страницы кейса: 10% по бокам от 810px — ровно как в макете
+  (128px при канвасе 1280px), на телефоне — общий --page-pad.
+  См. docs/07-case-template.md.
+
+  Подвал (Figma node 216:1257): ~142px от последней картинки до .bottomNav
+  и ~168px от неё до низа страницы — округлено до одного токена --space-8
+  (160px), применён и как margin-top у .bottomNav, и как padding-bottom у .page.
+*/
+
+.page {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-8);
+  padding-inline: var(--page-pad);
+}
+
+/*
+  padding-top держит место под CaseNavBar (24px — высота иконки темы,
+  она доминирует над строкой): раньше здесь в потоке стояла ссылка
+  "Закрыть", её убрали — теперь это единственная постоянно видимая
+  плавающая навигация кейса, см. CaseNavBar.module.css. Заголовок
+  по-прежнему через --space-7 от неё, как в макете.
+*/
+.header {
+  padding-top: 24px;
+  padding-bottom: var(--space-7);
+}
+
+.title {
+  margin: var(--space-7) 0 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+}
+
+.muted {
+  color: var(--color-text-secondary);
+}
+
+.bottomNav a {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.bottomNav a {
+  position: relative;
+  display: inline-block;
+}
+
+.bottomNav a::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.bottomNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  justify-content: flex-end;
+  margin-top: var(--space-8);
+  padding-block: var(--space-4);
+}
+
+@media (min-width: 50.625rem) {
+  .page {
+    padding-inline: 10%;
+  }
+}

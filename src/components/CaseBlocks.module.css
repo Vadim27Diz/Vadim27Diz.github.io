@@ -1,0 +1,295 @@
+/*
+  Сетка страницы кейса (Figma node 119:434, референс plyn-druhi.framer.website/monoliths).
+  Телефон (<810px) — одна колонка, всё во всю ширину.
+  От 810px — две равные колонки: медиа слева, текст всегда в правой.
+  Блоки стыкуются без зазоров, воздух дают вертикальные паддинги текста.
+*/
+
+.list {
+  --case-gap: 1px; /* волосяной зазор между кадрами, как в макете (513px шаг при высоте 512px) */
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: var(--case-gap);
+}
+
+/*
+  У грид-элементов по умолчанию min-width:auto (= min-content дочернего контента) —
+  широкая таблица (.tableWrap{overflow-x:auto}) без этого правила распирает саму
+  колонку грида и валит страницу в горизонтальный скролл на телефоне, вместо того
+  чтобы скроллиться только внутри себя.
+*/
+.list > * {
+  min-width: 0;
+}
+
+.media {
+  width: 100%;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.ratioWide {
+  aspect-ratio: 2 / 1;
+}
+
+.ratioSquare {
+  aspect-ratio: 1 / 1;
+}
+
+.mediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text {
+  max-width: 32rem;
+  padding-block: var(--space-4);
+}
+
+
+.group + .group {
+  margin-top: var(--space-4);
+}
+
+.group + .groupTight {
+  margin-top: var(--space-2);
+}
+
+.heading {
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.line {
+  margin: 0;
+}
+
+.pairs {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.pairs > div {
+  display: flex;
+  gap: 0.3em;
+}
+
+.pairs dt,
+.pairs dd {
+  margin: 0;
+}
+
+.pairs dd {
+  color: var(--color-text-primary);
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+/*
+  Таймлайн (Figma node 411:3801) — вехи как тёмные карточки (style border2,
+  вариант dark) над пунктирными линиями. Карточки вех не резиновые (ширина
+  по контенту), а их позиции заданы в % от контейнера 1024×314 из макета —
+  при более узком контейнере они наезжают друг на друга (проверено на 640px,
+  и ещё раз на контейнере 768px — это реальная ширина колонки при 10%-ных
+  полях страницы кейса на viewport вплоть примерно до 1280px, не только на
+  телефоне). Поэтому ширину диаграммы переключает JS (CaseBlocks.tsx),
+  меряя сам контейнер через ResizeObserver, а не брейкпоинт по viewport:
+  пока контейнер уже 1024px — диаграмма остаётся на исходных 1024px и
+  масштабируется целиком через transform:scale (inline style), карточки и
+  зазоры уменьшаются синхронно, без горизонтального скролла и без наездов.
+  Как только контейнер дорастает до 1024px — JS снимает transform и ставит
+  width:100% (inline) — диаграмма резиновая, шире — только воздух между
+  карточками, не оверлап. Ширина здесь в CSS — дефолт на первый рендер,
+  JS тут же переопределяет её inline-стилем.
+
+  У scale есть пол (TIMELINE_WIDTH/TIMELINE_MIN_WIDTH в CaseBlocks.tsx,
+  720px) — ниже него диаграмма дальше не ужимается (шрифт не мельчает до
+  нечитаемого). Когда контейнер уже 720px, видимая (отмасштабированная)
+  ширина диаграммы становится шире самого контейнера — в этом режиме
+  .timelineViewportScroll переключает overflow-x на auto и прячет UI
+  скроллбара (scrollbar-width/::-webkit-scrollbar), сам скролл (drag/touch/
+  wheel) остаётся рабочим, правый край уезжает за край контейнера.
+
+  transform:scale сам по себе не меняет scrollWidth родителя (браузеры
+  считают overflow по нетрансформированному layout-боксу, 1024px, а не по
+  видимому отмасштабированному размеру) — поэтому между timelineViewport и
+  timelineDiagram есть .timelineScaleBox с реальными (не-transform)
+  размерами TIMELINE_WIDTH*scale/TIMELINE_HEIGHT*scale (inline style). Это
+  и есть тот бокс, который overflow-x:auto видит как содержимое для скролла.
+*/
+.timeline {
+  width: 100%;
+  padding-block: var(--space-4);
+}
+
+.timelineViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.timelineViewportScroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.timelineViewportScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.timelineScaleBox {
+  width: 100%;
+}
+
+.timelineDiagram {
+  position: relative;
+  width: 1024px;
+  aspect-ratio: 1024 / 314;
+  transform-origin: top left;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 24.8%; /* 78/314 */
+  bottom: 7.6%; /* (314-290)/314 */
+  width: 1px;
+  border-left: 1px dashed var(--color-text-secondary);
+}
+
+.timelinePhase {
+  position: absolute;
+  top: 0;
+}
+
+.timelinePhaseLabel {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.timelineMonth {
+  margin: 0;
+}
+
+.timelineCard {
+  position: absolute;
+  padding: var(--space-3);
+  background: var(--color-surface-inverse);
+  color: var(--color-text-primary-inverse);
+  white-space: nowrap;
+}
+
+.tableBlock {
+  width: 100%;
+  padding-block: var(--space-4);
+}
+
+/* Витрина 2×2 (Figma: UI_02–UI_05) — стек на телефоне, сетка от 810px, как у squarePair */
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--case-gap);
+}
+
+@media (min-width: 50.625rem) {
+  .showcaseGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.anchor {
+  display: block;
+  scroll-margin-top: var(--space-4);
+}
+
+.metricsTree {
+  width: 100%;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font: inherit;
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: var(--space-2) var(--space-3) var(--space-2) 0;
+  text-align: left;
+  font-weight: inherit;
+  border-bottom: 1px solid var(--color-text-secondary);
+  white-space: normal;
+  min-width: 11rem;
+}
+
+.table thead th {
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-text-primary);
+}
+
+.table th:first-child,
+.table td:first-child {
+  min-width: 8rem;
+  color: var(--color-text-secondary);
+}
+
+.table tbody th {
+  text-align: left;
+}
+
+@media (min-width: 50.625rem) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .colFull {
+    grid-column: 1 / -1;
+  }
+
+  .colLeft {
+    grid-column: 1;
+  }
+
+  /*
+    Квадрат занимает всю строку, но рисуется в половину ширины слева:
+    так текст после него уходит вниз, а не встаёт справа (как в макете
+    у квадрата с интервью перед «Добавил пять решений»).
+  */
+  .colLeftSolo {
+    grid-column: 1 / -1;
+    width: calc((100% - var(--case-gap)) / 2);
+  }
+
+  .colRight {
+    grid-column: 2;
+  }
+
+  .text {
+    padding-inline: var(--space-3);
+  }
+}

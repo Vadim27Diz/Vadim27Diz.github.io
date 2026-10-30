@@ -1,0 +1,117 @@
+/*
+  Навигация страницы кейса — Figma node 521:1702 (Nav_menu). Поля — как
+  у самой страницы кейса (CaseStudyPage.module.css): --page-pad до
+  810px, 10% от 810px (не 16px, как у NavBar.module.css на главной).
+
+  Всегда видна (opacity не анимируется и не зависит от скролла) — это
+  единственный на странице кейса доступ к теме/языку, раньше была
+  скрыта до скролла мимо шапки, из-за чего в самом верху страницы
+  переключить тему/язык было нечем (решение от 2026-10-30).
+
+  Инверсия и position:fixed обязаны быть на одном и том же элементе —
+  иначе position:fixed создаёт свой stacking context и mix-blend-mode
+  дочерних элементов считается против пустоты внутри обёртки, а не
+  против страницы (этот баг уже был и исправлен в NavBar.module.css).
+*/
+
+.left,
+.right {
+  position: fixed;
+  top: var(--page-pad);
+  left: var(--page-pad);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.left {
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.right {
+  left: auto;
+  right: var(--page-pad);
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+@media (min-width: 50.625rem) {
+  .left {
+    left: 10%;
+  }
+
+  .right {
+    left: auto;
+    right: 10%;
+  }
+}
+
+.icon {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  pointer-events: auto;
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.close {
+  position: relative;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.close::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.muted {
+  opacity: 0.45;
+}
+
+.localeBtn {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #fff;
+  pointer-events: auto;
+}
+
+.localeBtn::before {
+  content: "";
+  position: absolute;
+  inset: -10px -4px;
+}
+
+.inactive {
+  opacity: 0.45;
+}

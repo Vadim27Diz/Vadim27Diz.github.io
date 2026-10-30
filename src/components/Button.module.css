@@ -1,0 +1,14 @@
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text-primary);
+  background: none;
+  border: 1px solid currentColor;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.button:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,31 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+.DS_Store
+.env
+.env.local
+
+*.log
+npm-debug.log*
+
+.vscode/*
+!.vscode/extensions.json
+
+# Claude Code — служебное, к сайту не относится
+.claude/
+skills-lock.json
+
+# Сырые дизайн-дампы (Figma-экспорты, PDF, видео-исходники) — не используются
+# кодом сайта, он берёт медиа только из public/images и public/video
+src/content/sber/
+src/content/Sportmaster/
+src/content/Trassir_redesign/
+src/content/Trassir_pay/
+src/content/Trassir_notify/
+src/content/Hiro/
+src/content/inta 1.0/
+src/content/sportmaster_preview.png
+src/content/icons/*.zip
