@@ -18,6 +18,7 @@ export interface Project {
     year: string;
   };
   media: CaseMedia;
+  externalUrl?: string;
 }
 
 export const projects: Record<"ru" | "en", Project[]> = {
@@ -65,20 +66,34 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
+      slug: "simple-guide-1",
+      title: "Дизайн система inta 1.0",
+      description:
+        "Мультибрендовая дизайн-система для web-интерфейсов. Она выросла из UI-кита для Trassir Cloud — облачного видеонаблюдения, где через веб-портал (CMS) управляют камерами, архивом записей и доступами пользователей. Потом я перенёс её на свою базу и убрал фирменную идентичность, чтобы систему можно было перекрасить под любой бренд (white-label).",
+      meta: { product: "Дизайн-система", platform: "Web", role: "дизайнер продукта", year: "2026" },
+      media: {
+        type: "image",
+        src: "/images/simple-guide-1.webp",
+        alt: "Дизайн система inta 1.0",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/9929668c-9ca8-4452-8309-a2ad576567ef?code=0EDHCX",
+    },
+    {
       slug: "trassir-mobile-notifications",
       title: "Trassir",
       description:
         "Пользователи мобильного приложения видеонаблюдения получали поток уведомлений со всех камер без возможности фильтрации, поэтому массово их отключали и пропускали важные события. Моей задачей было исследовать проблему и создать понятный интерфейс для точечной настройки уведомлений, чтобы вернуть людям контроль и повысить NPS продукта.",
       meta: { product: "Trassir mobile", platform: "iOS, Android", role: "дизайнер продукта", year: "2025" },
-      media: { type: "image", src: "", alt: "Trassir mobile notifications" },
-    },
-    {
-      slug: "simple-guide-1",
-      title: "Дизайн система inta 1.0",
-      description:
-        "Мультибрендовая дизайн-система для web-интерфейсов. Она выросла из UI-кита для Trassir Cloud — облачного видеонаблюдения, где через веб-портал (CMS) управляют камерами, архивом записей и доступами пользователей. Потом я перенёс её на свою базу и убрал фирменную идентичность, чтобы систему можно было перекрасить под любой бренд (white-label).",
-      meta: { product: "Дизайн-система", platform: "Web", role: "дизайнер продукта", year: "2023" },
-      media: { type: "image", src: "", alt: "Дизайн система inta 1.0" },
+      media: {
+        type: "image",
+        src: "/images/trassir-mobile-notifications.webp",
+        alt: "Trassir mobile notifications",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/a0390670-a449-44b9-9a81-cd6abf734823?code=0EDHCX",
     },
     {
       slug: "simple-guide-2",
@@ -86,7 +101,14 @@ export const projects: Record<"ru" | "en", Project[]> = {
       description:
         "NDA кейс основан на реальном продукте в travel / local discovery сегменте. Для публикации в портфолио я изменил название, иконку, часть визуальных решений и отдельные UI-элементы, сохранив продуктовую логику, структуру сценариев и суть дизайн-решений.",
       meta: { product: "NDA", platform: "iOS, Android", role: "дизайнер продукта", year: "2023" },
-      media: { type: "image", src: "", alt: "Simple Guide" },
+      media: {
+        type: "image",
+        src: "/images/simple-guide-2.webp",
+        alt: "Simple Guide",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/0dab20ef-157d-45c2-a0ef-57b8941776bd?code=0EDHCX",
     },
   ],
   en: [
@@ -133,20 +155,34 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
+      slug: "simple-guide-1",
+      title: "inta Design System 1.0",
+      description:
+        "A multi-brand design system for web interfaces. It grew out of a UI kit for Trassir Cloud, a cloud video surveillance platform where a web portal (CMS) is used to manage cameras, recording archives, and user access. I later moved it onto my own base and stripped the brand identity so the system could be recolored for any brand (white-label).",
+      meta: { product: "Design System", platform: "Web", role: "Product Designer", year: "2026" },
+      media: {
+        type: "image",
+        src: "/images/simple-guide-1.webp",
+        alt: "inta Design System 1.0",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/9929668c-9ca8-4452-8309-a2ad576567ef?code=0EDHCX",
+    },
+    {
       slug: "trassir-mobile-notifications",
       title: "Trassir",
       description:
         "Users of the video surveillance mobile app received a stream of notifications from every camera with no way to filter them, so they disabled notifications en masse and missed important events. My task was to research the problem and design a clear interface for granular notification settings, giving people back control and raising the product's NPS.",
       meta: { product: "Trassir mobile", platform: "iOS, Android", role: "Product Designer", year: "2025" },
-      media: { type: "image", src: "", alt: "Trassir mobile notifications" },
-    },
-    {
-      slug: "simple-guide-1",
-      title: "inta Design System 1.0",
-      description:
-        "A multi-brand design system for web interfaces. It grew out of a UI kit for Trassir Cloud, a cloud video surveillance platform where a web portal (CMS) is used to manage cameras, recording archives, and user access. I later moved it onto my own base and stripped the brand identity so the system could be recolored for any brand (white-label).",
-      meta: { product: "Design System", platform: "Web", role: "Product Designer", year: "2023" },
-      media: { type: "image", src: "", alt: "inta Design System 1.0" },
+      media: {
+        type: "image",
+        src: "/images/trassir-mobile-notifications.webp",
+        alt: "Trassir mobile notifications",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/a0390670-a449-44b9-9a81-cd6abf734823?code=0EDHCX",
     },
     {
       slug: "simple-guide-2",
@@ -154,7 +190,14 @@ export const projects: Record<"ru" | "en", Project[]> = {
       description:
         "An NDA case based on a real product in the travel / local discovery space. For this portfolio I changed the name, icon, some visual decisions, and individual UI elements, while keeping the product logic, flow structure, and the substance of the design decisions.",
       meta: { product: "NDA", platform: "iOS, Android", role: "Product Designer", year: "2023" },
-      media: { type: "image", src: "", alt: "Simple Guide" },
+      media: {
+        type: "image",
+        src: "/images/simple-guide-2.webp",
+        alt: "Simple Guide",
+        width: 1664,
+        height: 1248,
+      },
+      externalUrl: "https://buildin.ai/share/0dab20ef-157d-45c2-a0ef-57b8941776bd?code=0EDHCX",
     },
   ],
 };

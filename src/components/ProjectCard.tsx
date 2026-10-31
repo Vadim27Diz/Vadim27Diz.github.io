@@ -15,6 +15,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
   const locale = useLocale();
   const t = ui[locale];
   const isAvailable = Boolean(project.media.src);
+  const href = project.externalUrl ?? localizePath(locale, `/work/${project.slug}`);
 
   return (
     <div ref={ref} className="caseGrid">
@@ -45,7 +46,9 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
       {isAvailable ? (
         <a
           className={styles.mediaLink}
-          href={localizePath(locale, `/work/${project.slug}`)}
+          href={href}
+          target={project.externalUrl ? "_blank" : undefined}
+          rel={project.externalUrl ? "noopener noreferrer" : undefined}
           data-cursor="hover"
           draggable={false}
         >
