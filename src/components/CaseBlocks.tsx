@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import type { CaseBlock, CaseMetricsTreeBlock, CaseShowcaseBlock, CaseShowcaseItem, CaseTableBlock, CaseTextGroup, CaseTimelineBlock, CaseVideoBlock } from "../content/cases/blocks";
+import type { CaseBlock, CaseFlowDiagramBlock, CaseMetricsTreeBlock, CaseShowcaseBlock, CaseShowcaseItem, CaseTableBlock, CaseTextGroup, CaseTimelineBlock, CaseVideoBlock } from "../content/cases/blocks";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import FlowDiagram from "./FlowDiagram";
 import MetricsTree from "./MetricsTree";
 import styles from "./CaseBlocks.module.css";
 
@@ -261,6 +262,14 @@ function MetricsTreeBlock(block: CaseMetricsTreeBlock) {
   );
 }
 
+function FlowDiagramBlock(block: CaseFlowDiagramBlock) {
+  return (
+    <Reveal className={styles.colFull}>
+      <FlowDiagram {...block} />
+    </Reveal>
+  );
+}
+
 function Table({ heading, id, rowHeading, columns, rows }: CaseTableBlock) {
   return (
     <Reveal className={`${styles.tableBlock} ${styles.colFull}`}>
@@ -343,6 +352,10 @@ export default function CaseBlocks({ blocks }: { blocks: CaseBlock[] }) {
 
         if (block.type === "metricsTree") {
           return <MetricsTreeBlock key={block.heading} {...block} />;
+        }
+
+        if (block.type === "flowDiagram") {
+          return <FlowDiagramBlock key="flow-diagram" {...block} />;
         }
 
         if (block.type === "timeline") {

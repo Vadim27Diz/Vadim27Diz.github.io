@@ -137,6 +137,46 @@ export interface CaseShowcaseBlock {
   items: [CaseShowcaseItem, CaseShowcaseItem, CaseShowcaseItem, CaseShowcaseItem];
 }
 
+/** Группа коротких карточек в одной горизонтальной цепочке, соединённых стрелками «→» (напр. шаги онбординга) */
+export interface FlowDiagramStep {
+  label: string;
+}
+
+/** Колонка со тёмным заголовком и списком пунктирных строк (Figma node 553:1917, «Columns») */
+export interface FlowDiagramColumn {
+  header: string;
+  rows: string[];
+}
+
+/** Два исхода ветвления — обычный (светлый) и акцентный/проблемный (тёмный, шире) */
+export interface FlowDiagramOutcome {
+  label: string;
+  /** true — тёмная акцентная карточка (напр. «Высокая нагрузка»), false/undefined — светлая пунктирная */
+  accent?: boolean;
+}
+
+/**
+ * Схема «вход → разделы приложения → экран покупки → ветвление по нагрузке» (Figma node 553:1904,
+ * файл Portfolio3). Свёрстана тем же текстовым/глиф-способом, что и «Древо метрик» (MetricsTree):
+ * пунктирные и тёмные карточки токенами проекта, стрелки — глифы шрифта, а не картинки/SVG-кривые
+ * из макета (там это растровые «Direction fan»-ассеты без векторных данных).
+ */
+export interface CaseFlowDiagramBlock {
+  type: "flowDiagram";
+  /** Цепочка шагов входа, соединённых "→" (Figma: «Onboarding») */
+  entrySteps: FlowDiagramStep[];
+  /** Колонки разделов приложения (Figma: «Columns») */
+  columns: FlowDiagramColumn[];
+  /** Тёмный экран-акцент на всю ширину (Figma: «Purchase screen») */
+  screen: { heading: string; subtitle: string };
+  /** Пунктирная плашка-пояснение на всю ширину (Figma: «Load state») */
+  note: string;
+  /** Ветвление исхода (Figma: «Outcome») — обычно 2 карточки */
+  outcomes: FlowDiagramOutcome[];
+  /** Короткие пунктирные чипы под веткой-исходом (Figma: «Chips») */
+  chips: string[];
+}
+
 export type CaseBlock =
   | CaseImageBlock
   | CaseSquareBlock
@@ -146,7 +186,8 @@ export type CaseBlock =
   | CaseTableBlock
   | CaseMetricsTreeBlock
   | CaseTimelineBlock
-  | CaseShowcaseBlock;
+  | CaseShowcaseBlock
+  | CaseFlowDiagramBlock;
 
 export interface CaseStudyData {
   slug: string;

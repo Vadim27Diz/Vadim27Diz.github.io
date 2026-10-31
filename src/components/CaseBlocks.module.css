@@ -249,7 +249,6 @@
 
 .table thead th {
   color: var(--color-text-secondary);
-  border-bottom: 1px solid var(--color-text-primary);
 }
 
 .table th:first-child,
