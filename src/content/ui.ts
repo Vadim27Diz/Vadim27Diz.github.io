@@ -14,6 +14,10 @@ export const ui = {
     mediaLoading: "Загрузка...",
     mediaUnavailable: "В разработке...",
     mediaReload: "Обновить",
+    notFoundCode: "404",
+    notFoundTitle: "Чёёёё?",
+    notFoundBody: "Похоже такой страницы не существует, за то существует этот шедевр",
+    notFoundLink: "Шедевр",
   },
   en: {
     casesHeading: "Cases",
@@ -30,5 +34,9 @@ export const ui = {
     mediaLoading: "Loading...",
     mediaUnavailable: "In development...",
     mediaReload: "Reload",
+    notFoundCode: "404",
+    notFoundTitle: "Whaaat?",
+    notFoundBody: "Looks like this page doesn't exist, but this masterpiece does",
+    notFoundLink: "Masterpiece",
   },
 };

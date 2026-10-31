@@ -4,6 +4,7 @@
   /* Colors — primitives, see docs/02-design-tokens.md */
   --grey-1000: #050505;
   --grey-750: #6e6e6e;
+  --grey-700: #838383;
   --grey-e8: #e8e8e8;
   --grey-500: #a8a8a8;
   --grey-250: #cdcdcd;
@@ -25,6 +26,7 @@
   /* Colors — semantic */
   --color-text-primary: var(--grey-1000);
   --color-text-secondary: var(--grey-750);
+  --color-text-tertiary: var(--grey-700);
   --color-text-primary-inverse: var(--grey-e8);
   --color-text-secondary-inverse: var(--grey-500);
   --color-link: var(--blue-link);
@@ -49,6 +51,7 @@
   --font-size-caption: 11px;
   --line-height-caption: 19px;
   --line-height-link: 21px;
+  --font-size-display: 3.3125rem; /* 53px — цифры "404" (Figma node 532:1863) */
 
   /* Spacing scale */
   --space-1: 4px;
@@ -83,4 +86,5 @@
   --color-text-secondary: var(--color-text-secondary-inverse);
   --color-link: var(--color-link-inverse);
   --color-bg-dot: var(--grey-850);
+  --color-text-tertiary: var(--grey-750); /* onBG_2 Dark — Primitive colors/Grey/750 */
 }

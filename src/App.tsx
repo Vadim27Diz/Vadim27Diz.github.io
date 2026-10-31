@@ -5,6 +5,7 @@ import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
 import CaseRoute from "./pages/CaseRoute";
 import CaseStudyPage from "./pages/CaseStudyPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import { demoCompetitiveTable } from "./content/cases/demoCompetitiveTable";
 import { useLenis } from "./hooks/useLenis";
 import { LocaleProvider } from "./hooks/useLocale";
@@ -32,6 +33,7 @@ function LocaleRoutes() {
         path="demo/competitive-table"
         element={<CaseStudyPage data={demoCompetitiveTable} />}
       />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

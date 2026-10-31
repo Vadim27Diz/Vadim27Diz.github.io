@@ -4,6 +4,7 @@
 - https://www.figma.com/design/5PJKgkVYGTO8pkYG8AKn2r/Untitled?node-id=23-9 (каркас главной, фрейм «Hiro») — сетка/отступы/контент
 - https://www.figma.com/design/5PJKgkVYGTO8pkYG8AKn2r/Portfolio3?node-id=359-228 (фрейм «Frame 59», стиль-гайд: карточка-компонент в 4 состояниях, таблица, текстовый блок) — цвета и шрифтовые стили
 - https://www.figma.com/design/5PJKgkVYGTO8pkYG8AKn2r/Portfolio3?node-id=531-1766 (страница «State», плейсхолдеры медиа: no_img / load_img / reload_button) и node-id=532-1853 (мастер-компонент кнопки, состояния Default/Hover/Pressed/Focus) — плейсхолдеры картинок без изображения / в процессе загрузки / с ошибкой загрузки
+- https://www.figma.com/design/5PJKgkVYGTO8pkYG8AKn2r/Portfolio3?node-id=532-1862 (страница «404») — `src/pages/NotFoundPage.tsx`
 
 Значения синхронизированы с `src/styles/tokens.css`. 2026-10-29: обновлены цвета (добавлен семантический слой) и шрифты (Cascadia Mono → PT Sans + Roboto Mono) по второму источнику; значения `--color-bg` и `--color-link` затем сверены и поправлены по первому источнику (реальный контент фрейма «Hiro», а не абстрактный стиль-гайд).
 
@@ -16,6 +17,7 @@
 |---|---|---|
 | `--grey-1000` | `#050505` | Primitive colors/Grey/1000 |
 | `--grey-750` | `#6e6e6e` | Primitive colors/Grey/750 |
+| `--grey-700` | `#838383` | Primitive colors/Grey/700 |
 | `--grey-c4` | `#c4c4c4` | — (body-текст на тёмном фоне) |
 | `--bg-light` | `#dddddd` | — (фон светлой карточки) |
 | `--bg-dark` | `#000000` | — (фон тёмной/инвертированной карточки) |
@@ -34,6 +36,7 @@
 | `--color-surface-inverse` | `var(--bg-dark)` `#000000` | Тёмная/инвертированная поверхность (вариант «dark») |
 | `--color-text-primary` | `var(--grey-1000)` `#050505` | Основной текст на светлом фоне |
 | `--color-text-secondary` | `var(--grey-750)` `#6e6e6e` | Вторичный текст на светлом: лейблы, копирайт, подписи кейсов |
+| `--color-text-tertiary` | `var(--grey-700)` `#838383` / dark `var(--grey-750)` `#6e6e6e` | Третичный текст (onBG_2 из Figma Variables) — цифры «404» на странице `NotFoundPage` |
 | `--color-text-primary-inverse` | `#ffffff` | Основной текст на тёмном фоне |
 | `--color-text-secondary-inverse` | `var(--grey-c4)` `#c4c4c4` | Вторичный текст на тёмном фоне |
 | `--color-link` | `var(--blue-link)` `#1414cb` | Ссылки (cv/telegram/linkedin/mail и т.п.) |
@@ -64,6 +67,7 @@
 |---|---|
 | `--font-sans` | `"PT Sans", Arial, "Helvetica Neue", sans-serif` |
 | `--font-mono` | `"Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace` |
+| `--font-size-display` | `3.3125rem` (53px) | Цифры «404» (`NotFoundPage`, Figma node 532:1863) — единственное крупное демонстрационное число на сайте |
 
 ### Именованные стили
 Из стиль-гайда (фрейм 359:228) и сверено по реальному контенту фрейма «Hiro» (23:9):
