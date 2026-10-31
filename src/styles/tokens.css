@@ -4,9 +4,10 @@
   /* Colors — primitives, see docs/02-design-tokens.md */
   --grey-1000: #050505;
   --grey-750: #6e6e6e;
-  --grey-2f: #2f2f2f;
   --grey-e8: #e8e8e8;
-  --grey-c4: #c4c4c4;
+  --grey-500: #a8a8a8;
+  --grey-250: #cdcdcd;
+  --grey-850: #444444;
   --bg-light: #dddddd;
   --bg-dark: #000000;
   --grey-100: #e6e6e6;
@@ -25,14 +26,14 @@
   --color-text-primary: var(--grey-1000);
   --color-text-secondary: var(--grey-750);
   --color-text-primary-inverse: var(--grey-e8);
-  --color-text-secondary-inverse: var(--grey-c4);
+  --color-text-secondary-inverse: var(--grey-500);
   --color-link: var(--blue-link);
   --color-link-hover: var(--blue-400);
   --color-link-inverse: var(--blue-link-invers);
   --color-surface-dim: var(--bg-light);
   --color-surface-inverse: var(--bg-dark);
   --color-surface-placeholder: var(--grey-150);
-  --color-bg-dot: var(--grey-150);
+  --color-bg-dot: var(--grey-250);
 
   /* Background dot grid */
   --bg-dot-size: 16px;
@@ -71,14 +72,15 @@
 
 /*
   Тёмная тема — переключатель в Hero (useTheme, атрибут data-theme на <html>).
-  Экстраполировано из варианта «dark» карточки стиль-гайда (фрейм 359:228) —
-  отдельного фрейма тёмной страницы в Figma нет. Переопределяет только
-  семантические токены — компоненты используют их же, правок не требуют.
+  Источник — Figma Variables, коллекция "Simantic" (Light/Dark моды),
+  см. .claude/figma/tokens.json (кэш, синкается скиллом figma-tokens-sync).
+  Переопределяет только семантические токены — компоненты используют их же,
+  правок не требуют.
 */
 [data-theme="dark"] {
   --color-bg: var(--color-surface-inverse);
   --color-text-primary: var(--color-text-primary-inverse);
   --color-text-secondary: var(--color-text-secondary-inverse);
   --color-link: var(--color-link-inverse);
-  --color-bg-dot: var(--grey-2f);
+  --color-bg-dot: var(--grey-850);
 }
