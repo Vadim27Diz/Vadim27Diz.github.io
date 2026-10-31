@@ -134,7 +134,9 @@ html {
 }
 
 body {
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(var(--color-bg-dot) 1px, transparent 1px);
+  background-size: var(--bg-dot-size) var(--bg-dot-size);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   font-size: var(--font-size-base);

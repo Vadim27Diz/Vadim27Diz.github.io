@@ -74,11 +74,11 @@ export const projects: Record<"ru" | "en", Project[]> = {
     },
     {
       slug: "simple-guide-1",
-      title: "Simple Guide",
+      title: "Дизайн система inta 1.0",
       description:
-        "NDA кейс основан на реальном продукте в travel / local discovery сегменте. Для публикации в портфолио я изменил название, иконку, часть визуальных решений и отдельные UI-элементы, сохранив продуктовую логику, структуру сценариев и суть дизайн-решений.",
-      meta: { product: "NDA", platform: "iOS, Android", role: "дизайнер продукта", year: "2023" },
-      media: { type: "image", src: "", alt: "Simple Guide" },
+        "Мультибрендовая дизайн-система для web-интерфейсов. Она выросла из UI-кита для Trassir Cloud — облачного видеонаблюдения, где через веб-портал (CMS) управляют камерами, архивом записей и доступами пользователей. Потом я перенёс её на свою базу и убрал фирменную идентичность, чтобы систему можно было перекрасить под любой бренд (white-label).",
+      meta: { product: "Дизайн-система", platform: "Web", role: "дизайнер продукта", year: "2023" },
+      media: { type: "image", src: "", alt: "Дизайн система inta 1.0" },
     },
     {
       slug: "simple-guide-2",
@@ -142,11 +142,11 @@ export const projects: Record<"ru" | "en", Project[]> = {
     },
     {
       slug: "simple-guide-1",
-      title: "Simple Guide",
+      title: "inta Design System 1.0",
       description:
-        "An NDA case based on a real product in the travel / local discovery space. For this portfolio I changed the name, icon, some visual decisions, and individual UI elements, while keeping the product logic, flow structure, and the substance of the design decisions.",
-      meta: { product: "NDA", platform: "iOS, Android", role: "Product Designer", year: "2023" },
-      media: { type: "image", src: "", alt: "Simple Guide" },
+        "A multi-brand design system for web interfaces. It grew out of a UI kit for Trassir Cloud, a cloud video surveillance platform where a web portal (CMS) is used to manage cameras, recording archives, and user access. I later moved it onto my own base and stripped the brand identity so the system could be recolored for any brand (white-label).",
+      meta: { product: "Design System", platform: "Web", role: "Product Designer", year: "2023" },
+      media: { type: "image", src: "", alt: "inta Design System 1.0" },
     },
     {
       slug: "simple-guide-2",

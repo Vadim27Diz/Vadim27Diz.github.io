@@ -4,6 +4,8 @@
   /* Colors — primitives, see docs/02-design-tokens.md */
   --grey-1000: #050505;
   --grey-750: #6e6e6e;
+  --grey-2f: #2f2f2f;
+  --grey-e8: #e8e8e8;
   --grey-c4: #c4c4c4;
   --bg-light: #dddddd;
   --bg-dark: #000000;
@@ -22,7 +24,7 @@
   /* Colors — semantic */
   --color-text-primary: var(--grey-1000);
   --color-text-secondary: var(--grey-750);
-  --color-text-primary-inverse: #ffffff;
+  --color-text-primary-inverse: var(--grey-e8);
   --color-text-secondary-inverse: var(--grey-c4);
   --color-link: var(--blue-link);
   --color-link-hover: var(--blue-400);
@@ -30,6 +32,10 @@
   --color-surface-dim: var(--bg-light);
   --color-surface-inverse: var(--bg-dark);
   --color-surface-placeholder: var(--grey-150);
+  --color-bg-dot: var(--grey-150);
+
+  /* Background dot grid */
+  --bg-dot-size: 16px;
 
   /* Typography — PT Sans (текст) + Roboto Mono (ссылки), см. docs/02-design-tokens.md для font-file setup */
   --font-sans: "PT Sans", Arial, "Helvetica Neue", sans-serif;
@@ -74,4 +80,5 @@
   --color-text-primary: var(--color-text-primary-inverse);
   --color-text-secondary: var(--color-text-secondary-inverse);
   --color-link: var(--color-link-inverse);
+  --color-bg-dot: var(--grey-2f);
 }
