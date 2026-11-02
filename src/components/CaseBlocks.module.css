@@ -49,6 +49,16 @@
   padding-block: var(--space-4);
 }
 
+/*
+  Когда два .text-блока страницы стоят подряд без медиа между ними (напр.
+  diagram → следующая текстовая секция) — паддинг снизу первого и сверху
+  второго иначе складывается в ~48px вместо 24px, как в макете (сверено на
+  Inta node 293:14: «Итог»→«Задача»→«Связка» — везде ровно 24px).
+*/
+.text + .text {
+  padding-top: 0;
+}
+
 
 .group + .group {
   margin-top: var(--space-4);
@@ -200,6 +210,7 @@
 
 .tableBlock {
   width: 100%;
+  max-width: 32rem;
   padding-block: var(--space-4);
 }
 
@@ -261,6 +272,12 @@
   text-align: left;
 }
 
+.tableFootnote {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+  white-space: normal;
+}
+
 @media (min-width: 50.625rem) {
   .list {
     grid-template-columns: 1fr 1fr;
@@ -288,7 +305,8 @@
     grid-column: 2;
   }
 
-  .text {
+  .text,
+  .tableBlock {
     padding-inline: var(--space-3);
   }
 }

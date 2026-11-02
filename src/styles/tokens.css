@@ -33,6 +33,7 @@
   --color-link: var(--blue-link);
   --color-link-hover: var(--blue-400);
   --color-link-inverse: var(--blue-link-invers);
+  --color-surface-card: var(--grey-e8);
   --color-surface-dim: var(--bg-light);
   --color-surface-inverse: var(--bg-dark);
   --color-surface-placeholder: var(--grey-150);
@@ -88,4 +89,9 @@
   --color-link: var(--color-link-inverse);
   --color-bg-dot: var(--grey-900);
   --color-text-tertiary: var(--grey-750); /* onBG_2 Dark — Primitive colors/Grey/750 */
+  /* карточки-поверхности (TokenFlowDiagram): в светлой теме --grey-e8/--bg-light почти
+     сливаются с --color-bg (#e6e6e6), в тёмной — буквально совпадали бы с инвертированным
+     текстом (оба resolve в --grey-e8), поэтому здесь нужны отдельные тёмные оттенки */
+  --color-surface-card: var(--grey-850);
+  --color-surface-dim: var(--grey-900);
 }

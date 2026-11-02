@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import type { CaseBlock, CaseFlowBlock, CaseMetricsTreeBlock, CaseShowcaseBlock, CaseShowcaseItem, CaseTableBlock, CaseTextGroup, CaseTimelineBlock, CaseVideoBlock } from "../content/cases/blocks";
+import type { CaseBlock, CaseFlowBlock, CaseMetricsTreeBlock, CaseShowcaseBlock, CaseShowcaseItem, CaseTableBlock, CaseTextGroup, CaseTimelineBlock, CaseTokenFlowBlock, CaseUserFlowBlock, CaseVideoBlock } from "../content/cases/blocks";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import FlowCanvas from "./FlowCanvas";
 import MetricsTree from "./MetricsTree";
+import TokenFlowDiagram from "./TokenFlowDiagram";
+import UserFlowDiagram from "./UserFlowDiagram";
 import styles from "./CaseBlocks.module.css";
 
 interface RevealProps {
@@ -57,7 +59,7 @@ interface VideoProps extends Omit<CaseVideoBlock, "type" | "shape" | "solo"> {
   column: string;
 }
 
-function Video({ src, webm, poster, alt, width, height, ratio, column }: VideoProps) {
+function Video({ src, webm, poster, alt, width, height, ratio, column, objectPosition }: VideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -87,6 +89,7 @@ function Video({ src, webm, poster, alt, width, height, ratio, column }: VideoPr
       <video
         ref={ref}
         className={styles.mediaImg}
+        style={objectPosition ? { objectPosition } : undefined}
         poster={poster}
         width={width}
         height={height}
@@ -270,21 +273,39 @@ function FlowBlock(block: CaseFlowBlock) {
   );
 }
 
-function Table({ heading, id, rowHeading, columns, rows }: CaseTableBlock) {
+function TokenFlowBlock(block: CaseTokenFlowBlock) {
   return (
-    <Reveal className={`${styles.tableBlock} ${styles.colFull}`}>
+    <Reveal className={`${styles.text} ${styles.colRight}`}>
+      <TokenFlowDiagram {...block} />
+    </Reveal>
+  );
+}
+
+function UserFlowBlock(block: CaseUserFlowBlock) {
+  return (
+    <Reveal className={`${styles.text} ${styles.colRight}`}>
+      <UserFlowDiagram {...block} />
+    </Reveal>
+  );
+}
+
+function Table({ heading, id, rowHeading, columns, rows, noHeader, footnote }: CaseTableBlock) {
+  return (
+    <Reveal className={`${styles.tableBlock} ${styles.colRight}`}>
       {id && <span id={id} className={styles.anchor} />}
       {heading && <p className={styles.heading}>{heading}</p>}
       <div className={styles.tableWrap}>
         <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>{rowHeading}</th>
-              {columns.map((column) => (
-                <th key={column}>{column}</th>
-              ))}
-            </tr>
-          </thead>
+          {!noHeader && (
+            <thead>
+              <tr>
+                <th>{rowHeading}</th>
+                {columns.map((column) => (
+                  <th key={column}>{column}</th>
+                ))}
+              </tr>
+            </thead>
+          )}
           <tbody>
             {rows.map((row, i) => (
               <tr key={`${row.label}-${i}`}>
@@ -296,6 +317,7 @@ function Table({ heading, id, rowHeading, columns, rows }: CaseTableBlock) {
             ))}
           </tbody>
         </table>
+        {footnote && <p className={styles.tableFootnote}>{footnote}</p>}
       </div>
     </Reveal>
   );
@@ -356,6 +378,14 @@ export default function CaseBlocks({ blocks }: { blocks: CaseBlock[] }) {
 
         if (block.type === "flow") {
           return <FlowBlock key="flow" {...block} />;
+        }
+
+        if (block.type === "tokenFlow") {
+          return <TokenFlowBlock key="tokenFlow" {...block} />;
+        }
+
+        if (block.type === "userFlow") {
+          return <UserFlowBlock key="userFlow" {...block} />;
         }
 
         if (block.type === "timeline") {

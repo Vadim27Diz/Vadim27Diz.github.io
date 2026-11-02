@@ -41,6 +41,8 @@ export interface CaseVideoBlock {
   /** "wide" — кадр 2:1 на всю ширину (по умолчанию), "square" — 1:1 в левой колонке */
   shape?: "wide" | "square";
   solo?: boolean;
+  /** CSS object-position для <video> — когда исходник не того же кадрирования, что контейнер, и дефолтный center обрезает нужную часть (напр. запись экрана, где важная панель справа) */
+  objectPosition?: string;
 }
 
 export interface CaseTextGroup {
@@ -93,6 +95,10 @@ export interface CaseTableBlock {
   rowHeading: string;
   columns: string[];
   rows: { label: string; values: string[] }[];
+  /** true — без строки-заголовка (напр. вступительная таблица «Что сделано/Команда/...» в кейсе Inta, node 293:153 — там header-строки нет вообще) */
+  noHeader?: boolean;
+  /** Мелкая серая строка-сноска под таблицей, внутри её же рамки (напр. «*таблица подсчитана без участие AI») */
+  footnote?: string;
 }
 
 /** Одна метрика/гипотеза в строке «Древа метрик» — только текст, без цветных заливок (стиль Inta_DS_case, node 293:7) */
@@ -177,6 +183,59 @@ export interface CaseFlowBlock {
   chips: string[];
 }
 
+/** Одна карточка основной цепочки token-flow диаграммы (Figma: «style border2», пунктирная рамка) */
+export interface TokenFlowStep {
+  heading: string;
+  subtitle: string;
+}
+
+/**
+ * Вертикальная диаграмма «Figma → Токены → Компоненты → [Проверки в каждом PR] → Storybook →
+ * Chromatic» с пунктирной стрелкой обратной связи (Figma node 613:2361, «flow», холст 412×680,
+ * файл Portfolio3). В отличие от CaseFlowBlock (Плати частями, холст 1024×822, растровые
+ * коннекторы «Direction (fan)») — здесь стрелки простые прямые линии, собраны CSS, без
+ * растровых ассетов. Масштабируется по той же схеме, что Timeline/FlowCanvas (см. скилл
+ * responsive-scaled-diagram), DESIGN_WIDTH=412.
+ */
+export interface CaseTokenFlowBlock {
+  type: "tokenFlow";
+  /** Ровно 5 карточек основной цепочки: Figma, Токены, Компоненты, Storybook, Chromatic */
+  steps: [TokenFlowStep, TokenFlowStep, TokenFlowStep, TokenFlowStep, TokenFlowStep];
+  /** Полноширинная врезка между 3-й и 4-й карточкой (Figma: «Проверка в каждом PR», bg #ddd) */
+  checks: { heading: string; lines: string[] };
+  /** Маленькая тёмная аннотация у пунктирной стрелки обратной связи (Figma: «расхождение и правка») */
+  feedback: string;
+}
+
+/** Одна карточка диаграммы user-флоу — одна или две строки лейбла */
+export interface UserFlowCard {
+  lines: [string] | [string, string];
+  /** true — чёрная заливка без рамки (Figma: тёмные карточки Live просмотр/Архив/Уведомление) */
+  accent?: boolean;
+}
+
+/** Колонка стопки карточек без зазоров (Figma: Frame 21/20/19) */
+export interface UserFlowColumn {
+  cards: UserFlowCard[];
+}
+
+/**
+ * Диаграмма «Авторизация/Онбординг → Главный экран → 3 колонки разделов» (Figma node
+ * 630:3430, «Флоу пользователя», холст 488×505, файл Portfolio3). В отличие от CaseFlowBlock
+ * (Плати частями, растровые коннекторы «Direction fan») и CaseTokenFlowBlock (вертикальная
+ * цепочка 412×680) — здесь ровно 2 карточки входа, слитые стрелкой вниз в одну полноширинную
+ * карточку, а затем ветвление на 3 колонки стопок карточек разной длины и окраски.
+ */
+export interface CaseUserFlowBlock {
+  type: "userFlow";
+  /** «Флоу пользователя» — в макете приклеена к канвасу зазором 8px (один флекс-контейнер,
+      не отдельная текстовая группа), поэтому заголовок живёт в самом блоке диаграммы */
+  heading?: string;
+  entrySteps: [string, string];
+  screen: string;
+  columns: [UserFlowColumn, UserFlowColumn, UserFlowColumn];
+}
+
 export type CaseBlock =
   | CaseImageBlock
   | CaseSquareBlock
@@ -187,7 +246,9 @@ export type CaseBlock =
   | CaseMetricsTreeBlock
   | CaseTimelineBlock
   | CaseShowcaseBlock
-  | CaseFlowBlock;
+  | CaseFlowBlock
+  | CaseTokenFlowBlock
+  | CaseUserFlowBlock;
 
 export interface CaseStudyData {
   slug: string;

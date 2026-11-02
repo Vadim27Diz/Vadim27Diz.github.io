@@ -1,0 +1,101 @@
+/*
+  Диаграмма «Авторизация/Онбординг → Главный экран → 3 колонки» (Figma node 630:3430,
+  холст 488×505). Тот же приём ресайза, что у Timeline/FlowCanvas/TokenFlowDiagram
+  (скилл responsive-scaled-diagram): контейнер измеряется ResizeObserver'ом, диаграмма —
+  жёсткий холст WIDTH×HEIGHT, который масштабируется целиком через transform:scale, с
+  нижним порогом MIN_WIDTH и скрытым горизонтальным скроллом дальше вниз. Все дети — на
+  литеральных px из Figma, как у TokenFlowDiagram (не на %), т.к. холст трансформится целиком.
+*/
+/*
+  padding-block намеренно не ставим здесь: вертикальный ритм уже даёт обёртка
+  .text в CaseBlocks.module.css (на Reveal-блоке вокруг этого компонента) —
+  свой паддинг поверх неё задваивал бы отступ. Заголовок приклеен к канвасу
+  зазором 8px (--space-2), как в Figma node 630:3430 (один флекс-контейнер
+  text+Flow с gap-[8px], а не два разных блока страницы).
+*/
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.heading {
+  margin: 0;
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.viewportScroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.viewportScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scaleBox {
+  width: 100%;
+}
+
+.canvas {
+  position: relative;
+  width: 488px;
+  height: 505px;
+  transform-origin: top left;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.card {
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-surface-card);
+  border: 1px dashed var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.card p {
+  margin: 0;
+}
+
+/* Карточки входа и «Главный экран» — абсолютно спозиционированы (left/top в style) */
+.card:not(.columnCard) {
+  position: absolute;
+}
+
+.column {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.columnCard {
+  width: 100%;
+}
+
+.cardAccent {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-primary-inverse);
+  /* --color-surface-inverse — тот же чёрный, что и --color-bg в тёмной теме (tokens.css):
+     без обводки карточка сливается со страницей, как и feedbackNote в TokenFlowDiagram */
+  border: 1px solid var(--color-text-secondary-inverse);
+}
+
+.arrowH,
+.arrowV {
+  position: absolute;
+  display: block;
+}
