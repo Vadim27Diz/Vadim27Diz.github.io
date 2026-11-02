@@ -38,20 +38,6 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
-      slug: "sportmaster-banner-builder",
-      title: "Плати частями",
-      description:
-        "Переосмысление реального BNPL-сервиса Сбербанка «Плати частями». Самостоятельная платформа с охватом вне банка открывает новый канал выручки — рекламу блогеров и брендов без склада и риска, плюс механика «закрыть рассрочку близкого без обязательства» через Sber ID.",
-      meta: { product: "продуктовый концепт", platform: "iOS", role: "дизайнер продукта", year: "2026" },
-      media: {
-        type: "image",
-        src: "/images/sportmaster-banner-builder.webp",
-        alt: "Плати частями",
-        width: 1248,
-        height: 936,
-      },
-    },
-    {
       slug: "sportmaster-build-banners",
       title: "Sportmaster",
       description:
@@ -61,6 +47,20 @@ export const projects: Record<"ru" | "en", Project[]> = {
         type: "image",
         src: "/images/sportmaster-build-banners.webp",
         alt: "Sportmaster — конструктор баннеров",
+        width: 1248,
+        height: 936,
+      },
+    },
+    {
+      slug: "sportmaster-banner-builder",
+      title: "Плати частями",
+      description:
+        "Переосмысление реального BNPL-сервиса Сбербанка «Плати частями». Самостоятельная платформа с охватом вне банка открывает новый канал выручки — рекламу блогеров и брендов без склада и риска, плюс механика «закрыть рассрочку близкого без обязательства» через Sber ID.",
+      meta: { product: "продуктовый концепт", platform: "iOS", role: "дизайнер продукта", year: "2026" },
+      media: {
+        type: "image",
+        src: "/images/sportmaster-banner-builder.webp",
+        alt: "Плати частями",
         width: 1248,
         height: 936,
       },
@@ -127,20 +127,6 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
-      slug: "sportmaster-banner-builder",
-      title: "Pay in Installments",
-      description:
-        "A reimagining of Sberbank's real BNPL service, \u2018Pay in Installments.\u2019 A standalone platform reaching beyond the bank opens a new revenue channel \u2014 advertising for bloggers and brands with no inventory or risk \u2014 plus a mechanic for covering a loved one\u2019s installment plan with no obligation, via Sber ID.",
-      meta: { product: "product concept", platform: "iOS", role: "Product Designer", year: "2026" },
-      media: {
-        type: "image",
-        src: "/images/sportmaster-banner-builder.webp",
-        alt: "Pay in Installments",
-        width: 1248,
-        height: 936,
-      },
-    },
-    {
       slug: "sportmaster-build-banners",
       title: "Sportmaster",
       description:
@@ -150,6 +136,20 @@ export const projects: Record<"ru" | "en", Project[]> = {
         type: "image",
         src: "/images/sportmaster-build-banners.webp",
         alt: "Sportmaster banner builder",
+        width: 1248,
+        height: 936,
+      },
+    },
+    {
+      slug: "sportmaster-banner-builder",
+      title: "Pay in Installments",
+      description:
+        "A reimagining of Sberbank's real BNPL service, \u2018Pay in Installments.\u2019 A standalone platform reaching beyond the bank opens a new revenue channel \u2014 advertising for bloggers and brands with no inventory or risk \u2014 plus a mechanic for covering a loved one\u2019s installment plan with no obligation, via Sber ID.",
+      meta: { product: "product concept", platform: "iOS", role: "Product Designer", year: "2026" },
+      media: {
+        type: "image",
+        src: "/images/sportmaster-banner-builder.webp",
+        alt: "Pay in Installments",
         width: 1248,
         height: 936,
       },

@@ -1,0 +1,178 @@
+/*
+  Диаграмма «вход → разделы приложения → экран покупки → ветвление по нагрузке»
+  (Figma node 580:1582, «Flow», холст 1024×822). Карточки — абсолютно спозиционированные
+  (left/top в %) группы, коннекторы — растровые ассеты макета (Direction fan, Arrow).
+
+  Ресайз — тот же приём, что у Timeline (CaseBlocks.module.css, подробный разбор там):
+  пока контейнер ≥1024px — диаграмма резиновая; от FLOW_MIN_WIDTH (720px, FlowCanvas.tsx)
+  до 1024px — масштабируется целиком через transform:scale; ниже 720px масштаб
+  замораживается и включается горизонтальный скролл со скрытым UI скроллбара.
+*/
+
+.flow {
+  width: 100%;
+  padding-block: var(--space-4);
+}
+
+.viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.viewportScroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.viewportScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scaleBox {
+  width: 100%;
+}
+
+.diagram {
+  position: relative;
+  width: 1024px;
+  aspect-ratio: 1024 / 822;
+  transform-origin: top left;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+}
+
+.entryRow,
+.columnsRow,
+.screenBar,
+.noteBar,
+.outcomeBox {
+  position: absolute;
+}
+
+.entryRow {
+  display: flex;
+  align-items: center;
+}
+
+.entryStep {
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrowH {
+  display: block;
+}
+
+.arrowV,
+.fan {
+  position: absolute;
+  display: block;
+}
+
+.dashedCard,
+.darkCard {
+  display: inline-flex;
+  width: max-content;
+  padding: var(--space-3);
+  white-space: nowrap;
+}
+
+.dashedCard {
+  background: var(--grey-100);
+  border: 1px dashed var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.darkCard {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-primary-inverse);
+}
+
+/* В ветвлении исхода карточки растягиваются на всю ширину своего бокса, а не по контенту */
+.outcomeBox > .dashedCard,
+.outcomeBox > .darkCard {
+  width: 100%;
+}
+
+.columnsRow {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.flowColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 0 0 239px;
+  width: 239px;
+}
+
+.columnHeader,
+.columnRow {
+  margin: 0;
+  padding: var(--space-3);
+  white-space: nowrap;
+}
+
+.columnHeader {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-primary-inverse);
+}
+
+.columnRow {
+  background: var(--grey-100);
+  border: 1px dashed var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.screenBar,
+.noteBar {
+  left: 0;
+  margin: 0;
+  padding: var(--space-3);
+}
+
+.screenBar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--color-surface-inverse);
+}
+
+.screenHeading {
+  margin: 0;
+  color: var(--color-text-primary-inverse);
+}
+
+.screenSubtitle {
+  margin: 0;
+  color: var(--color-text-secondary-inverse);
+}
+
+.noteBar {
+  background: var(--grey-100);
+  border: 1px dashed var(--color-text-primary);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.outcomeBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.chipsRow {
+  display: flex;
+  gap: 1px;
+}
+
+.chip {
+  padding: var(--space-3);
+  background: var(--grey-100);
+  border: 1px dashed var(--color-text-primary);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}

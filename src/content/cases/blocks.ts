@@ -156,13 +156,13 @@ export interface FlowDiagramOutcome {
 }
 
 /**
- * Схема «вход → разделы приложения → экран покупки → ветвление по нагрузке» (Figma node 553:1904,
- * файл Portfolio3). Свёрстана тем же текстовым/глиф-способом, что и «Древо метрик» (MetricsTree):
- * пунктирные и тёмные карточки токенами проекта, стрелки — глифы шрифта, а не картинки/SVG-кривые
- * из макета (там это растровые «Direction fan»-ассеты без векторных данных).
+ * Схема «вход → разделы приложения → экран покупки → ветвление по нагрузке» (Figma node 580:1582,
+ * «Flow», файл Portfolio3, холст 1024×822). Карточки — токены проекта (как у .timelineCard), но
+ * коннекторы — настоящие растровые ассеты макета («Direction (fan)», «Arrow»), абсолютно
+ * спозиционированные на холсте и масштабируемые целиком — как Timeline (CaseBlocks.module.css).
  */
-export interface CaseFlowDiagramBlock {
-  type: "flowDiagram";
+export interface CaseFlowBlock {
+  type: "flow";
   /** Цепочка шагов входа, соединённых "→" (Figma: «Onboarding») */
   entrySteps: FlowDiagramStep[];
   /** Колонки разделов приложения (Figma: «Columns») */
@@ -187,7 +187,7 @@ export type CaseBlock =
   | CaseMetricsTreeBlock
   | CaseTimelineBlock
   | CaseShowcaseBlock
-  | CaseFlowDiagramBlock;
+  | CaseFlowBlock;
 
 export interface CaseStudyData {
   slug: string;

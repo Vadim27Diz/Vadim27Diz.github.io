@@ -184,7 +184,7 @@ export const platiChastyami: CaseStudyData = {
     img("user-flow", "Карта пользовательских сценариев приложения"),
 
     {
-      type: "flowDiagram",
+      type: "flow",
       entrySteps: [
         { label: "Баннер в СберБанк Онлайн или скачал app" },
         { label: "Вход по Sber ID" },

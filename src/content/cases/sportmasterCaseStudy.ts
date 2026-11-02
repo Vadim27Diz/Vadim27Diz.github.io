@@ -2,8 +2,7 @@ import type { CaseStudyData } from "./blocks";
 
 /**
  * Полный кейс «CRM. Спортмастер-Маркетплейс» — Figma node 216:1257 (файл Portfolio3),
- * фрейм «Sportmaster_case». Забрал слаг sportmaster-build-banners у кейса-заглушки
- * («Древо метрик» переехал на sportmaster-metrics-tree, см. sportmasterBanners.ts).
+ * фрейм «Sportmaster_case».
  *
  * Заголовок страницы в макете сейчас с опечаткой («...Маркетплей Проект») — взял
  * вариант из черновика demoCompetitiveTable.ts («CRM. Спортмастер-Маркетплейс»),
