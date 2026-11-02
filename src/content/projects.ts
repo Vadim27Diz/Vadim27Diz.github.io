@@ -66,7 +66,7 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
-      slug: "simple-guide-1",
+      slug: "inta-design-system",
       title: "Дизайн система inta 1.0",
       description:
         "Мультибрендовая дизайн-система для web-интерфейсов. Она выросла из UI-кита для Trassir Cloud — облачного видеонаблюдения, где через веб-портал (CMS) управляют камерами, архивом записей и доступами пользователей. Потом я перенёс её на свою базу и убрал фирменную идентичность, чтобы систему можно было перекрасить под любой бренд (white-label).",
@@ -78,7 +78,6 @@ export const projects: Record<"ru" | "en", Project[]> = {
         width: 1664,
         height: 1248,
       },
-      externalUrl: "https://buildin.ai/share/9929668c-9ca8-4452-8309-a2ad576567ef?code=0EDHCX",
     },
     {
       slug: "trassir-mobile-notifications",
@@ -155,7 +154,7 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
     },
     {
-      slug: "simple-guide-1",
+      slug: "inta-design-system",
       title: "inta Design System 1.0",
       description:
         "A multi-brand design system for web interfaces. It grew out of a UI kit for Trassir Cloud, a cloud video surveillance platform where a web portal (CMS) is used to manage cameras, recording archives, and user access. I later moved it onto my own base and stripped the brand identity so the system could be recolored for any brand (white-label).",
@@ -167,7 +166,6 @@ export const projects: Record<"ru" | "en", Project[]> = {
         width: 1664,
         height: 1248,
       },
-      externalUrl: "https://buildin.ai/share/9929668c-9ca8-4452-8309-a2ad576567ef?code=0EDHCX",
     },
     {
       slug: "trassir-mobile-notifications",

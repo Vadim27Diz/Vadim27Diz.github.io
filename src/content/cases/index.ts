@@ -1,4 +1,5 @@
 import { projects } from "../projects";
+import { intaDesignSystem } from "./intaDesignSystem";
 import { platiChastyami } from "./platiChastyami";
 import { sportmasterCaseStudy } from "./sportmasterCaseStudy";
 import { trassirRedesign } from "./trassirRedesign";
@@ -7,6 +8,7 @@ export const caseStudies = {
   [platiChastyami.slug]: platiChastyami,
   [trassirRedesign.slug]: trassirRedesign,
   [sportmasterCaseStudy.slug]: sportmasterCaseStudy,
+  [intaDesignSystem.slug]: intaDesignSystem,
 };
 
 export type CaseStudySlug = keyof typeof caseStudies;
