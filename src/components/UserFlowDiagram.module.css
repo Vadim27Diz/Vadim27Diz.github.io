@@ -86,6 +86,19 @@
   width: 100%;
 }
 
+/* Карточки в колонке стоят впритык без зазора: без этого правила верхняя
+   граница текущей карточки дублирует нижнюю границу предыдущей (1px + 1px =
+   жирная полоска на стыке). Линию стыка рисует только карточка сверху. */
+.columnCardJoined {
+  border-top: none;
+}
+
+/* Между двумя accent-карточками подряд (Figma node 630:3288: «Live просмотр» +
+   «Архив») в макете нет линии вообще — они сливаются в один чёрный блок. */
+.columnCardFuseBottom {
+  border-bottom: none;
+}
+
 .cardAccent {
   background: var(--color-surface-inverse);
   color: var(--color-text-primary-inverse);

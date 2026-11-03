@@ -14,6 +14,13 @@ const ARROW_V_TOP = [52, 138];
 const ARROW_V_LEFT = [385, 73, 245, 415];
 const COLUMNS_TOP = 173;
 
+// Высота карточки по Figma (node 630:3430: каждый «style border2» — 52px на одну строку,
+// 72px на две). На auto-высоте реальный border-box даёт 54/74px (padding+line-height+border
+// без вычитания border у auto-height) — на колонке из 6 карточек это накапливает ~10px
+// переполнения мимо фиксированного HEIGHT канваса и обрезается overflow:hidden у .viewport.
+const CARD_HEIGHT = 52;
+const CARD_HEIGHT_TWO_LINES = 72;
+
 export default function UserFlowDiagram({ heading, entrySteps, screen, columns }: CaseUserFlowBlock) {
   const revealRef = useScrollReveal<HTMLDivElement>();
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -44,7 +51,7 @@ export default function UserFlowDiagram({ heading, entrySteps, screen, columns }
       <div ref={viewportRef} className={`${styles.viewport} ${scrollable ? styles.viewportScroll : ""}`}>
         <div className={styles.scaleBox} style={scale !== null ? { width: WIDTH * scale, height: HEIGHT * scale } : undefined}>
           <div className={styles.canvas} style={scale !== null ? { transform: `scale(${scale})` } : undefined}>
-            <div className={styles.card} style={{ left: 0, top: 0, width: 227 }}>
+            <div className={styles.card} style={{ left: 0, top: 0, width: 227, height: CARD_HEIGHT }}>
               <p>{entryA}</p>
             </div>
             <img
@@ -55,7 +62,7 @@ export default function UserFlowDiagram({ heading, entrySteps, screen, columns }
               height={8}
               style={{ left: 228, top: 26 }}
             />
-            <div className={styles.card} style={{ left: 282, top: 0, width: 206 }}>
+            <div className={styles.card} style={{ left: 282, top: 0, width: 206, height: CARD_HEIGHT }}>
               <p>{entryB}</p>
             </div>
 
@@ -68,7 +75,7 @@ export default function UserFlowDiagram({ heading, entrySteps, screen, columns }
               style={{ left: ARROW_V_LEFT[0], top: ARROW_V_TOP[0] }}
             />
 
-            <div className={styles.card} style={{ left: 0, top: 86, width: WIDTH }}>
+            <div className={styles.card} style={{ left: 0, top: 86, width: WIDTH, height: CARD_HEIGHT }}>
               <p>{screen}</p>
             </div>
 
@@ -91,7 +98,12 @@ export default function UserFlowDiagram({ heading, entrySteps, screen, columns }
                 style={{ left: COLUMN_LEFT[columnIndex], top: COLUMNS_TOP, width: COLUMN_WIDTH }}
               >
                 {column.cards.map((card, cardIndex) => (
-                  <ColumnCard key={cardIndex} card={card} />
+                  <ColumnCard
+                    key={cardIndex}
+                    card={card}
+                    isFirst={cardIndex === 0}
+                    fuseWithNext={Boolean(card.accent && column.cards[cardIndex + 1]?.accent)}
+                  />
                 ))}
               </div>
             ))}
@@ -102,9 +114,27 @@ export default function UserFlowDiagram({ heading, entrySteps, screen, columns }
   );
 }
 
-function ColumnCard({ card }: { card: UserFlowCard }) {
+function ColumnCard({
+  card,
+  isFirst,
+  fuseWithNext,
+}: {
+  card: UserFlowCard;
+  isFirst: boolean;
+  fuseWithNext: boolean;
+}) {
+  const className = [
+    styles.card,
+    styles.columnCard,
+    card.accent ? styles.cardAccent : "",
+    isFirst ? "" : styles.columnCardJoined,
+    fuseWithNext ? styles.columnCardFuseBottom : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={`${styles.card} ${styles.columnCard} ${card.accent ? styles.cardAccent : ""}`}>
+    <div className={className} style={{ height: card.lines.length > 1 ? CARD_HEIGHT_TWO_LINES : CARD_HEIGHT }}>
       {card.lines.map((line) => (
         <p key={line}>{line}</p>
       ))}

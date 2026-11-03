@@ -86,16 +86,21 @@
   border-left: 1px dashed var(--color-text-primary);
 }
 
+/* Открытый шеврон, как в UserFlowDiagram (flow-arrow-v.webp) — угол квадрата,
+   повёрнутый на 45deg, вместо залитого треугольника. Центрирование — через
+   margin (не transform: translateX), иначе компоновка translate+rotate на
+   одном элементе даёт субпиксельный разъезд право/нижней границы при дробном
+   scale родителя — угол рисуется двумя несвязанными штрихами вместо «v». */
 .arrowHead {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid var(--color-text-primary);
+  bottom: -2px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-right: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--color-text-primary);
+  transform: rotate(45deg);
 }
 
 .bypassArrow,
@@ -128,13 +133,13 @@
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid var(--color-text-primary);
+  bottom: -2px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-right: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--color-text-primary);
+  transform: rotate(45deg);
 }
 
 .checks {
@@ -186,12 +191,12 @@
 .feedbackArrow::before {
   content: "";
   position: absolute;
-  top: -1px;
+  top: -5px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 6px solid var(--color-text-secondary);
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-left: 2px solid var(--color-text-secondary);
+  border-top: 2px solid var(--color-text-secondary);
+  transform: rotate(45deg);
 }
