@@ -98,6 +98,32 @@
   color: var(--color-text-primary);
 }
 
+/*
+  Вариант статистики (Figma node 656:5481, «Доля пользователей»): значение (dd) крупным
+  шрифтом сверху, лейбл (dt) мельче снизу — элементы в ряд, переносятся на узких экранах
+  вместо горизонтального скролла.
+*/
+.pairsStat {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2.5rem;
+  row-gap: var(--space-3);
+}
+
+.pairsStat > div {
+  flex-direction: column;
+  gap: 0;
+}
+
+.pairsStat dt {
+  order: 2;
+}
+
+.pairsStat dd {
+  order: 1;
+  font-size: var(--font-size-stat);
+}
+
 .link {
   position: relative;
   display: inline-block;

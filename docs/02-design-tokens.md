@@ -75,6 +75,7 @@
 | Стиль | Шрифт | Размер/высота строки | Трекинг | Токены | Где используется |
 |---|---|---|---|---|---|
 | **H3** | PT Sans Bold (700) | 13px / 19px | 0.13px | `--font-size-base` / `--line-height-heading` / `--letter-spacing-heading` | Заголовок текстового блока в стиль-гайде («Header», жирный) — и заголовки секций (`.heading`) на страницах кейсов, см. `CaseBlocks.module.css` |
+| **H2** | PT Sans Regular (400) | 16px / 20px | — | `--font-size-stat` / `--line-height-base` | Крупные цифры статистики (`statPairs`, Figma node 656:5481 «Доля пользователей», кейс «Плати частями») |
 | **Body 2** | PT Sans Regular (400) | 13px / 20px | — | `--font-size-base` / `--line-height-base` | Весь обычный текст: био, заголовки и описания кейсов, лейблы продукт/платформа/роль/год, ячейки таблицы |
 | **mono Link 1** | Roboto Mono Regular (400) | 13px / 21px | — | `--font-size-base` / `--line-height-link` | Ссылки: cv/telegram/linkedin/mail, «Link →» |
 | **mono Caption 1** | Roboto Mono Regular (400) | 11px / 19px | — | `--font-size-caption` / `--line-height-caption` | Копирайт «© Reznikov Vadim, 2026» |

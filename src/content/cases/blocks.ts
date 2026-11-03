@@ -52,6 +52,12 @@ export interface CaseTextGroup {
   pairs?: { label: string; value: string }[];
   /** true — отбивка от предыдущей группы 8px вместо 24px (так свёрстан «Итог» в кейсе Trassir) */
   tight?: boolean;
+  /**
+   * true — pairs рендерятся как статистика (стиль H2, Figma node 656:5481 «Доля пользователей»):
+   * значение крупным 16px сверху, лейбл 13px снизу, элементы в ряд с переносом на узких экранах.
+   * По умолчанию pairs — строка «лейбл значение» (стиль продукт/платформа/роль/год).
+   */
+  statPairs?: boolean;
   /** Ссылка-переход в конце группы (стиль «Link →»: Roboto Mono + --color-link) */
   link?: { label: string; href: string };
 }

@@ -54,6 +54,7 @@
   --line-height-caption: 19px;
   --line-height-link: 21px;
   --font-size-display: 3.3125rem; /* 53px — цифры "404" (Figma node 532:1863) */
+  --font-size-stat: 1rem; /* 16px — стиль H2, крупные цифры статистики (Figma node 656:5481 «Доля пользователей») */
 
   /* Spacing scale */
   --space-1: 4px;

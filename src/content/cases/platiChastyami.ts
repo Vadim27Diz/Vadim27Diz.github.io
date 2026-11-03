@@ -98,6 +98,7 @@ export const platiChastyami: CaseStudyData = {
       groups: [
         {
           heading: "Доля пользователей сервисов рассрочки",
+          statPairs: true,
           pairs: [
             { label: "Халва", value: "49%" },
             { label: "Долями", value: "38%" },

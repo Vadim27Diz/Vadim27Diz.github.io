@@ -116,7 +116,7 @@ function TextGroup({ group }: { group: CaseTextGroup }) {
         </p>
       ))}
       {group.pairs && (
-        <dl className={styles.pairs}>
+        <dl className={`${styles.pairs} ${group.statPairs ? styles.pairsStat : ""}`}>
           {group.pairs.map((pair) => (
             <div key={pair.label}>
               <dt>{pair.label}</dt>
