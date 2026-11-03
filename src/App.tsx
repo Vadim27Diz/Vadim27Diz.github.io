@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Cursor from "./components/Cursor";
 import NavBar from "./components/NavBar";
 import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
+import UIConcept from "./sections/UIConcept";
 import CaseRoute from "./pages/CaseRoute";
 import CaseStudyPage from "./pages/CaseStudyPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -11,11 +13,16 @@ import { useLenis } from "./hooks/useLenis";
 import { LocaleProvider } from "./hooks/useLocale";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main>
       <NavBar />
       <Hero />
       <Projects />
+      <UIConcept />
     </main>
   );
 }

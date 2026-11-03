@@ -1,6 +1,7 @@
 export const ui = {
   ru: {
     casesHeading: "Кейсы",
+    uiConceptHeading: "UI Концепты",
     specProduct: "продукт",
     specPlatform: "платформа",
     specRole: "роль",
@@ -21,6 +22,7 @@ export const ui = {
   },
   en: {
     casesHeading: "Cases",
+    uiConceptHeading: "UI Concepts",
     specProduct: "product",
     specPlatform: "platform",
     specRole: "role",
