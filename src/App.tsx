@@ -11,16 +11,19 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { demoCompetitiveTable } from "./content/cases/demoCompetitiveTable";
 import { useLenis } from "./hooks/useLenis";
 import { LocaleProvider } from "./hooks/useLocale";
+import { useAvatarPinned } from "./hooks/useAvatarPinned";
 
 function Home() {
+  const { ref: avatarRef, pinned } = useAvatarPinned<HTMLDivElement>();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <main>
-      <NavBar />
-      <Hero />
+      <NavBar localePinned={pinned} />
+      <Hero avatarRef={avatarRef} localePinned={pinned} />
       <Projects />
       <UIConcept />
     </main>

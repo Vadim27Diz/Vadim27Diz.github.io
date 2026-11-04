@@ -7,15 +7,23 @@ import styles from "./NavBar.module.css";
 
 const INVERT_COLOR = "#ffffff";
 
+interface Props {
+  /** Нет Hero-фото, мимо которого скроллить (страницы без Hero) — видно всегда. */
+  localePinned?: boolean;
+}
+
 /**
  * Постоянно видимая навигация главной (Figma node 498:1634) — единственный
- * источник переключателя темы/языка на странице, без скрытия при скролле
- * (решение от 2026-10-30, тот же приём, что и у CaseNavBar: раньше бар
- * скрывался/появлялся по ScrollTrigger дубликатом инлайн-контролов в Hero,
- * но при скролле обратно наверх это давало баг — сами инлайн-контролы
- * убраны из Hero, теперь NavBar — единственная их версия).
+ * источник переключателя темы, и фиксированная версия RU/ENG. Иконка темы +
+ * роль видны всегда. RU/ENG (.right) — её пара с инлайн-версией в Hero.tsx:
+ * пока фото Hero в зоне видимости, видна инлайн-версия, эта скрыта;
+ * как только фото уходит за верх экрана (localePinned, useAvatarPinned в
+ * App.tsx — один ScrollTrigger на двоих), роли меняются местами с
+ * "падением" (opacity+translateY). Явно не самостоятельный ScrollTrigger —
+ * решение от 2026-10-30 отмечало баг именно от двух независимых триггеров
+ * на инлайн- и фиксированной версии при скролле вверх.
  */
-export default function NavBar() {
+export default function NavBar({ localePinned = true }: Props) {
   const locale = useLocale();
   const p = profile[locale];
   const { locale: activeLocale, go } = useLocaleSwitch();
@@ -45,7 +53,11 @@ export default function NavBar() {
         <p className={styles.role}>{p.role}</p>
       </div>
 
-      <div className={styles.right}>
+      <div
+        className={
+          localePinned ? `${styles.right} ${styles.pinned}` : styles.right
+        }
+      >
         <button
           type="button"
           className={

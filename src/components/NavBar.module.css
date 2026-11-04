@@ -38,6 +38,29 @@
   line-height: var(--line-height-base);
 }
 
+/*
+  Пара инлайн-версии в Hero.module.css (.localeInline/.localeInlineHidden) —
+  пока фото Hero видно, эта версия скрыта и ждёт выше своего места
+  (translateY(-8px)); при .pinned "падает" в исходную позицию.
+*/
+.right:not(.pinned) {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.right {
+  transition:
+    opacity var(--duration-base) var(--ease-default),
+    transform var(--duration-base) var(--ease-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .right {
+    transition: none;
+  }
+}
+
 .icon {
   position: relative;
   display: block;

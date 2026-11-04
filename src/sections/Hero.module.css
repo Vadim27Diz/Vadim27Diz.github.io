@@ -55,7 +55,7 @@
 
 /*
   RU/ENG сидит в одной строке с аватаром, слева от него (фрейм Figma
-  «Hiro» node 23:9: оба top=16, RU/ENG right=1097, аватар left=1108).
+  «Hiro» node 23:9: оба top=18, зазор между текстом RU/ENG и фото — 16px).
   align-self: stretch — чтобы justify-content отвечал за выравнивание
   вправо независимо от align-items родителя (.end).
 */
@@ -63,8 +63,54 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  gap: var(--space-2);
+  gap: var(--space-3);
   align-self: stretch;
+}
+
+/*
+  Инлайн-версия RU/ENG — видна, пока фото Hero в зоне видимости. Как
+  только фото уходит за верх экрана (useAvatarPinned), она гаснет и
+  эстафету принимает фиксированная версия в NavBar.right (та же пара
+  opacity/translateY, см. NavBar.module.css) — единое состояние
+  localePinned, без независимых триггеров на обеих версиях.
+*/
+.localeInline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--duration-base) var(--ease-default),
+    transform var(--duration-base) var(--ease-default);
+}
+
+.localeInlineHidden {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.localeBtn {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--color-text-primary);
+}
+
+.inactive {
+  color: var(--color-text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .localeInline {
+    transition: none;
+  }
 }
 
 /*
