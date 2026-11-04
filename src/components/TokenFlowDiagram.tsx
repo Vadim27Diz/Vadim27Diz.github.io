@@ -4,9 +4,16 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import styles from "./TokenFlowDiagram.module.css";
 
 // Холст из Figma (node 613:2361, «flow», файл Portfolio3) — см. docs/responsive-scaled-diagram.
+// HEIGHT с запасом сверх цифры из Figma (680px): auto-height карточек (padding + line-height +
+// border без явного height) рендерится на пару px выше расчётного — тот же эффект, что уже
+// задокументирован в UserFlowDiagram.tsx про CARD_HEIGHT. У Chromatic, последней карточки без
+// соседа снизу, это упиралось в overflow:hidden вьюпорта и резало низ диаграммы.
 const WIDTH = 412;
-const HEIGHT = 680;
+const HEIGHT = 696;
 const MIN_WIDTH = 320;
+
+const ARROW_WIDTH = 7;
+const CENTER = WIDTH / 2;
 
 export default function TokenFlowDiagram({ steps, checks, feedback }: CaseTokenFlowBlock) {
   const revealRef = useScrollReveal<HTMLDivElement>();
@@ -38,32 +45,42 @@ export default function TokenFlowDiagram({ steps, checks, feedback }: CaseTokenF
         <div className={styles.scaleBox} style={scale !== null ? { width: WIDTH * scale, height: HEIGHT * scale } : undefined}>
           <div className={styles.canvas} style={scale !== null ? { transform: `scale(${scale})` } : undefined}>
             {/*
-              Пунктирная стрелка обратной связи рендерится первой (ниже по z-order), чтобы
-              карточки с непрозрачным фоном перекрывали её на своих участках — в макете линия
-              видна только в зазорах между карточками и в области врезки «Проверки», как будто
-              проходит «под» ними (Figma node 613:2362: top=80, height=289.5, left≈331).
+              Стрелка обратной связи рендерится первой (ниже по z-order), чтобы непрозрачные
+              карточки поверх неё перекрывали её на своих участках — сверено со скриншотом самого
+              макета (get_screenshot на 613:2361): в реальном рендере Figma линия тоже видна только
+              в зазорах между карточками и в области врезки «Проверки», проходит у них «под низом»,
+              а не поверх. Сгенерированный get_design_context HTML вводит в заблуждение на этот счёт
+              (там стрелка — position:absolute, что по CSS-спеке красилось бы поверх статичных
+              карточек) — но это артефакт экспорта в HTML, не то, что реально рисует Figma.
             */}
-            <div className={styles.feedbackArrow} style={{ top: 80, height: 289.5 }} />
+            <img
+              className={styles.feedbackArrow}
+              src="/images/inta-design-system/flow-arrow-feedback.webp"
+              alt=""
+              width={ARROW_WIDTH}
+              height={290}
+              style={{ top: 80, left: 331 }}
+            />
 
             <div className={styles.step} style={{ top: 0 }}>
               <p className={styles.stepHeading}>{figma.heading}</p>
               <p className={styles.stepSubtitle}>{figma.subtitle}</p>
             </div>
-            <Arrow top={80} />
+            <Arrow top={80} height={25} left={CENTER} />
             <div className={styles.step} style={{ top: 105 }}>
               <p className={styles.stepHeading}>{tokens.heading}</p>
               <p className={styles.stepSubtitle}>{tokens.subtitle}</p>
             </div>
-            <Arrow top={185} />
+            <Arrow top={185} height={25} left={CENTER} />
             <div className={styles.step} style={{ top: 210 }}>
               <p className={styles.stepHeading}>{components.heading}</p>
               <p className={styles.stepSubtitle}>{components.subtitle}</p>
             </div>
 
             {/* Компоненты → Storybook, в обход врезки «Проверки» слева по центру */}
-            <div className={styles.bypassArrow} style={{ top: 291, height: 204 }} />
+            <Arrow src="/images/inta-design-system/flow-arrow-bypass.webp" top={291} height={204} left={157} />
             {/* Компоненты → верх врезки «Проверки» */}
-            <div className={styles.branchArrow} style={{ top: 291, height: 79 }} />
+            <Arrow src="/images/inta-design-system/flow-arrow-branch.webp" top={291} height={79} left={205} />
 
             <div className={styles.feedbackNote} style={{ top: 305 }}>
               {feedback}
@@ -82,7 +99,7 @@ export default function TokenFlowDiagram({ steps, checks, feedback }: CaseTokenF
               <p className={styles.stepHeading}>{storybook.heading}</p>
               <p className={styles.stepSubtitle}>{storybook.subtitle}</p>
             </div>
-            <Arrow top={575} />
+            <Arrow top={575} height={25} left={CENTER} />
             <div className={styles.step} style={{ top: 600 }}>
               <p className={styles.stepHeading}>{chromatic.heading}</p>
               <p className={styles.stepSubtitle}>{chromatic.subtitle}</p>
@@ -94,11 +111,16 @@ export default function TokenFlowDiagram({ steps, checks, feedback }: CaseTokenF
   );
 }
 
-function Arrow({ top }: { top: number }) {
-  return (
-    <div className={styles.arrow} style={{ top }}>
-      <span className={styles.arrowLine} />
-      <span className={styles.arrowHead} />
-    </div>
-  );
+function Arrow({
+  top,
+  height,
+  left,
+  src = "/images/inta-design-system/flow-arrow-short.webp",
+}: {
+  top: number;
+  height: number;
+  left: number;
+  src?: string;
+}) {
+  return <img className={styles.arrow} src={src} alt="" width={ARROW_WIDTH} height={height} style={{ top, left }} />;
 }
