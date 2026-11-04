@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <script>
+      // Отключаем нативное восстановление скролла браузером — своей
+      // логикой решаем, с какой позиции открывается главная страница
+      // и страница кейса. Должно выполниться до того, как GSAP
+      // ScrollTrigger прочитает и закэширует history.scrollRestoration
+      // при своей инициализации (иначе он сам переставит его в "auto").
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+
       // Single Page Apps for GitHub Pages — декодер редиректа из 404.html
       // https://github.com/rafgraph/spa-github-pages
       (function (l) {

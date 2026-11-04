@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Project } from "../content/projects";
 import { ui } from "../content/ui";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -44,16 +45,27 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
         </div>
       </div>
       {isAvailable ? (
-        <a
-          className={styles.mediaLink}
-          href={href}
-          target={project.externalUrl ? "_blank" : undefined}
-          rel={project.externalUrl ? "noopener noreferrer" : undefined}
-          data-cursor="hover"
-          draggable={false}
-        >
-          <CaseMedia media={project.media} priority={priority} />
-        </a>
+        project.externalUrl ? (
+          <a
+            className={styles.mediaLink}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="hover"
+            draggable={false}
+          >
+            <CaseMedia media={project.media} priority={priority} />
+          </a>
+        ) : (
+          <Link
+            className={styles.mediaLink}
+            to={href}
+            data-cursor="hover"
+            draggable={false}
+          >
+            <CaseMedia media={project.media} priority={priority} />
+          </Link>
+        )
       ) : (
         <div className={styles.mediaLink}>
           <CaseMedia media={project.media} priority={priority} />

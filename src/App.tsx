@@ -9,15 +9,34 @@ import CaseRoute from "./pages/CaseRoute";
 import CaseStudyPage from "./pages/CaseStudyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { demoCompetitiveTable } from "./content/cases/demoCompetitiveTable";
-import { useLenis } from "./hooks/useLenis";
+import { useLenis, scrollToInstant } from "./hooks/useLenis";
 import { LocaleProvider } from "./hooks/useLocale";
 import { useAvatarPinned } from "./hooks/useAvatarPinned";
+
+const HOME_SCROLL_KEY = "home-scroll-y";
+
+/**
+ * Флаг в памяти (не в sessionStorage) — true, только если Home уже
+ * монтировался в этом запуске приложения. При реальной перезагрузке
+ * страницы (F5) модуль выполняется заново и флаг снова false, поэтому
+ * восстановление координат срабатывает только при возврате на Home
+ * клиентской SPA-навигацией (кейс → назад), а не после рефреша, даже
+ * если sessionStorage ещё хранит старое значение с прошлого раза.
+ */
+let hasMountedHomeThisSession = false;
 
 function Home() {
   const { ref: avatarRef, pinned } = useAvatarPinned<HTMLDivElement>();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const saved = sessionStorage.getItem(HOME_SCROLL_KEY);
+    const shouldRestore = hasMountedHomeThisSession && saved !== null;
+    scrollToInstant(shouldRestore ? Number(saved) : 0);
+    hasMountedHomeThisSession = true;
+
+    return () => {
+      sessionStorage.setItem(HOME_SCROLL_KEY, String(window.scrollY));
+    };
   }, []);
 
   return (

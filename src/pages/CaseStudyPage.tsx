@@ -4,6 +4,7 @@ import type { CaseStudyData } from "../content/cases/blocks";
 import { getNextCaseSlug } from "../content/cases";
 import { ui } from "../content/ui";
 import { useLocale, localizePath } from "../hooks/useLocale";
+import { scrollToInstant } from "../hooks/useLenis";
 import CaseBlocks from "../components/CaseBlocks";
 import CaseNavBar from "../components/CaseNavBar";
 import styles from "./CaseStudyPage.module.css";
@@ -20,7 +21,7 @@ export default function CaseStudyPage({ data }: CaseStudyPageProps) {
   const next = localizePath(locale, `/work/${getNextCaseSlug(data.slug)}`);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToInstant(0);
   }, [data.slug]);
 
   useEffect(() => {
