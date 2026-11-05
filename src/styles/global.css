@@ -169,6 +169,22 @@ video {
   }
 }
 
+/* Смена темы (growing-circle reveal) — src/hooks/themeRipple.ts.
+   Отключаем дефолтный кросс-фейд View Transition API и выставляем new
+   поверх old, чтобы clip-path на new раскрывал уже переключённую тему
+   поверх застывшего снимка старой. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

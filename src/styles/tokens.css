@@ -75,6 +75,7 @@
   --duration-fast: 0.2s;
   --duration-base: 0.8s;
   --duration-slow: 0.8s;
+  --duration-ripple: 1.12s; /* растущий круг смены темы (View Transition API), src/hooks/themeRipple.ts */
 }
 
 /*

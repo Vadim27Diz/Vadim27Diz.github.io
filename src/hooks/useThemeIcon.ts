@@ -3,6 +3,7 @@ import lottie, { type AnimationItem } from "lottie-web/build/player/lottie_svg";
 import sunData from "../content/icons/sun.json";
 import moonData from "../content/icons/moon.json";
 import { useTheme } from "./useTheme";
+import { playThemeRipple } from "./themeRipple";
 
 function hexToRgb01(hex: string): [number, number, number] {
   const n = parseInt(hex.trim().replace("#", ""), 16);
@@ -33,7 +34,7 @@ export function useThemeIcon(
   containerRef: RefObject<HTMLElement | null>,
   getColor: () => string
 ) {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme: applyTheme } = useTheme();
   const animRef = useRef<AnimationItem | null>(null);
 
   useEffect(() => {
@@ -70,6 +71,20 @@ export function useThemeIcon(
     if (reducedMotion()) return;
     animRef.current?.setDirection(-1);
     animRef.current?.play();
+  };
+
+  const toggleTheme = () => {
+    if (reducedMotion()) {
+      applyTheme();
+      return;
+    }
+
+    const rect = containerRef.current?.getBoundingClientRect();
+    const origin = rect
+      ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+      : { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+    playThemeRipple(origin, applyTheme);
   };
 
   return { theme, toggleTheme, handleEnter, handleLeave };
