@@ -16,7 +16,7 @@ export const profile: Record<"ru" | "en", ProfileContent> = {
     role: "Product Designer",
     bio: "Привет! Меня зовут Вадим, я более 15 лет в дизайне и 8 из них — в продуктовой разработке. Специализируюсь на сложных B2B/B2C системах, токенизированных White-label решениях и мобильных сервисах. Соединяю UX-исследования, работу с метриками и AI-инструменты, чтобы находить сильные и неочевидные решения для задач бизнеса.",
     links: [
-      { label: "cv", href: "https://buildin.ai/share/0ae1c498-0ad6-4067-8e88-b75eda3b4c87?code=0EDHCX" },
+      { label: "cv", href: "/cv/Reznikov_CV2026_ru.pdf" },
       { label: "telegram", href: "https://t.me/Vadim27" },
       { label: "linkedin", href: "https://www.linkedin.com/in/vadim-reznikov-r27" },
       { label: "mail", href: "mailto:will27roo@gmail.com" },
@@ -33,7 +33,7 @@ export const profile: Record<"ru" | "en", ProfileContent> = {
     role: "Product Designer",
     bio: "I've been in design for over 15 years, 8 of them in product development. I specialize in complex B2B/B2C systems, tokenized white-label solutions, and mobile services. I combine UX research, metrics-driven work, and AI tools to find strong, non-obvious solutions for business problems.",
     links: [
-      { label: "cv", href: "https://buildin.ai/share/0ae1c498-0ad6-4067-8e88-b75eda3b4c87?code=0EDHCX" },
+      { label: "cv", href: "/cv/Reznikov_CV2026_en.pdf" },
       { label: "telegram", href: "https://t.me/Vadim27" },
       { label: "linkedin", href: "https://www.linkedin.com/in/vadim-reznikov-r27" },
       { label: "mail", href: "mailto:will27roo@gmail.com" },

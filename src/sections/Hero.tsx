@@ -29,7 +29,7 @@ export default function Hero({ avatarRef, localePinned }: Props) {
                 <a
                   href={link.href}
                   data-cursor="hover"
-                  {...(link.href.startsWith("http")
+                  {...(link.href.startsWith("http") || link.href.endsWith(".pdf")
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                 >
