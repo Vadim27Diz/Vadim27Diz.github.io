@@ -21,12 +21,12 @@ export default function Cursor() {
 
     const onEnter = (e: Event) => {
       if ((e.target as HTMLElement).closest("[data-cursor='hover']")) {
-        gsap.to(el, { scale: 4.4, duration: 0.2, ease: "power3" });
+        gsap.to(el, { scale: 1, duration: 0.2, ease: "power3" });
       }
     };
     const onLeave = (e: Event) => {
       if ((e.target as HTMLElement).closest("[data-cursor='hover']")) {
-        gsap.to(el, { scale: 1, duration: 0.2, ease: "power3" });
+        gsap.to(el, { scale: 0.2273, duration: 0.2, ease: "power3" });
       }
     };
 
