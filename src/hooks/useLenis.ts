@@ -19,9 +19,18 @@ let activeLenis: Lenis | null = null;
  * `lenis.scrollTo(y, { immediate: true })` обнуляет velocity и
  * останавливает анимацию (`reset()` внутри Lenis), поэтому дальше
  * его raf-цикл не спорит с положением скролла.
+ *
+ * `resize()` перед `scrollTo` обязателен: Lenis меряет `scrollHeight`
+ * через `ResizeObserver`, задебounсенный на 250ms, и этот кэш не
+ * обновляется мгновенно при переходе Case → Home. `scrollTo` клэмпит
+ * цель в `[0, limit]` по этому устаревшему (ещё от короткой страницы
+ * кейса) лимиту — отсюда баг «возврат на Home промахивается мимо
+ * сохранённой позиции». `resize()` синхронно перечитывает DOM, минуя
+ * дебаунс.
  */
 export function scrollToInstant(y: number) {
   if (activeLenis) {
+    activeLenis.resize();
     activeLenis.scrollTo(y, { immediate: true });
   } else {
     window.scrollTo(0, y);
