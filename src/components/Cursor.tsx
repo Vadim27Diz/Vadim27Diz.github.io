@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { useLocale } from "../hooks/useLocale";
 import { ui } from "../content/ui";
@@ -23,6 +24,25 @@ export default function Cursor() {
   const labelRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const t = ui[locale];
+  const { pathname } = useLocation();
+
+  /**
+   * SPA-переход (клик по data-cursor="case"/"hover" ссылке) снимает DOM
+   * элемента, пока курсор физически не сдвинулся — pointerout у браузера
+   * на это не срабатывает, и hover-состояние (пилюля/увеличенный круг)
+   * залипает на новой странице. Сбрасываем курсор в состояние по
+   * умолчанию при каждой смене маршрута.
+   */
+  useEffect(() => {
+    const dot = dotRef.current;
+    const shell = shellRef.current;
+    const label = labelRef.current;
+    if (!dot || !shell || !label) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
+    gsap.to(dot, { scale: 0.2273, duration: 0 });
+    gsap.to([shell, label], { scale: 0, duration: 0 });
+  }, [pathname]);
 
   useEffect(() => {
     const dot = dotRef.current;
