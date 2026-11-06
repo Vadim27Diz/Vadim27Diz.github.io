@@ -122,7 +122,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         ],
       },
 
-      img("competitors-table", "Таблица сравнения BNPL-сервисов по условиям"),
+      img("competitors-table", "Таблица сравнения BNPL-сервисов по условиям", 1860, 930),
 
       {
         type: "text",
@@ -183,7 +183,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
       },
 
       img("solutions", "Пять решений: бюджет, Sber ID, лента, помощник, сканер"),
-      img("user-flow", "Карта пользовательских сценариев приложения"),
+      img("user-flow", "Карта пользовательских сценариев приложения", 2048, 1024),
 
       {
         type: "text",
@@ -428,7 +428,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         ],
       },
 
-      img("competitors-table", "Comparison table of BNPL services by terms"),
+      img("competitors-table", "Comparison table of BNPL services by terms", 1860, 930),
 
       {
         type: "text",
@@ -489,7 +489,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
       },
 
       img("solutions", "Five solutions: budget, Sber ID, feed, assistant, scanner"),
-      img("user-flow", "Map of the app's user scenarios"),
+      img("user-flow", "Map of the app's user scenarios", 2048, 1024),
 
       {
         type: "text",
