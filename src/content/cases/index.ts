@@ -2,6 +2,7 @@ import type { CaseStudyData } from "./blocks";
 import { projects } from "../projects";
 import type { Locale } from "../../hooks/useLocale";
 import { intaDesignSystem } from "./intaDesignSystem";
+import { pixelFx } from "./pixelFx";
 import { platiChastyami } from "./platiChastyami";
 import { sportmasterCaseStudy } from "./sportmasterCaseStudy";
 import { trassirRedesign } from "./trassirRedesign";
@@ -12,12 +13,14 @@ const registry: Record<"ru" | "en", Record<string, CaseStudyData>> = {
     [trassirRedesign.ru.slug]: trassirRedesign.ru,
     [sportmasterCaseStudy.ru.slug]: sportmasterCaseStudy.ru,
     [intaDesignSystem.ru.slug]: intaDesignSystem.ru,
+    [pixelFx.ru.slug]: pixelFx.ru,
   },
   en: {
     [platiChastyami.en.slug]: platiChastyami.en,
     [trassirRedesign.en.slug]: trassirRedesign.en,
     [sportmasterCaseStudy.en.slug]: sportmasterCaseStudy.en,
     [intaDesignSystem.en.slug]: intaDesignSystem.en,
+    [pixelFx.en.slug]: pixelFx.en,
   },
 };
 

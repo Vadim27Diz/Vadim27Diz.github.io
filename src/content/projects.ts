@@ -95,6 +95,20 @@ export const projects: Record<"ru" | "en", Project[]> = {
       externalUrl: "https://buildin.ai/share/a0390670-a449-44b9-9a81-cd6abf734823?code=0EDHCX",
     },
     {
+      slug: "pixel-fx",
+      title: "Pixel FX",
+      description:
+        "Плагин для Figma, который переносит на холст полноценный пиксельный конвейер эффектов: альфа-ключ, уровни, реколор, тон/насыщенность, блендинг, бесшовный тайлинг и автообрезку. Обрабатывает выделенные слои пакетно, с живым превью и одним отменяемым действием на всю пачку.",
+      meta: { product: "Pixel FX", platform: "Figma", role: "разработка плагина", year: "2025" },
+      media: {
+        type: "image",
+        src: "/images/pixel-fx/screen01.webp",
+        alt: "Pixel FX — скриншот интерфейса плагина",
+        width: 1664,
+        height: 1248,
+      },
+    },
+    {
       slug: "simple-guide-2",
       title: "Simple Guide",
       description:
@@ -181,6 +195,20 @@ export const projects: Record<"ru" | "en", Project[]> = {
         height: 1248,
       },
       externalUrl: "https://buildin.ai/share/a0390670-a449-44b9-9a81-cd6abf734823?code=0EDHCX",
+    },
+    {
+      slug: "pixel-fx",
+      title: "Pixel FX",
+      description:
+        "A Figma plugin that brings a full pixel-effects pipeline onto the canvas: alpha key, levels, recolor, hue/saturation, blending, seamless tiling, and auto-crop. Processes selected layers in a batch, with a live preview and one undoable action for the whole batch.",
+      meta: { product: "Pixel FX", platform: "Figma", role: "Plugin development", year: "2025" },
+      media: {
+        type: "image",
+        src: "/images/pixel-fx/screen01.webp",
+        alt: "Pixel FX — plugin interface screenshot",
+        width: 1664,
+        height: 1248,
+      },
     },
     {
       slug: "simple-guide-2",
