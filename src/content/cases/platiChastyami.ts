@@ -38,7 +38,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         groups: [
           {
             lines: [
-              "Рынок захватили маркетплейсы, а потенциал BNPL-приложений не раскрыт. Я захотел разрушить стереотип о сложной бюрократии, сделав рассрочки бесшовным социальным опытом — как для онлайна, так и для офлайн-оплат по QR-коду.",
+              "Маркетплейсы заняли рынок, а потенциал BNPL остался нераскрытым. Я сделал рассрочку простым социальным опытом — для онлайна и для оплаты по QR-коду.",
             ],
           },
           {
@@ -52,7 +52,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         ],
       },
 
-      img("feed", "Лента приложения с контентом блогеров и карточкой товара", 2048, 1024),
+      img("feed", "Лента приложения с контентом блогеров и карточкой товара", 2048, 1024),
 
       {
         type: "text",
@@ -60,15 +60,15 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Проблема",
             lines: [
-              "Приложения рассрочек похожи друг на друга: внутри — список сайтов-партнёров банка, зайди и выбирай магазин по вкусу. Кажется простым, но за этой простотой скрывается цепочка трений, которая отбивает желание пользоваться сервисом ещё до покупки.",
+              "Приложения рассрочек похожи: список партнёрских магазинов банка, выбирай и заходи. Выглядит просто, но за этим — трения, которые отбивают желание купить ещё до оплаты.",
             ],
           },
           {
             heading: "Почему «Плати частями»",
             lines: [
-              "У Сбера есть экосистема, аудитория и «Спасибо», но «Плати частями» проигрывает в опыте. СберБанк Онлайн — управление деньгами, не шопинг: покупка рождается в другом состоянии и не возникает среди счетов.",
-              "Мерчантам не всегда выгодно переезжать на склады СберЛогистики. Зато продавать на огромную аудиторию без привязки к чужой инфраструктуре и лишних рисков — предложение, от которого сложно отказаться. А значит, ниша не занята.",
-              "«Плати частями» может стать витриной и рекламной площадкой для брендов и блогеров, удерживая аудиторию в одном потоке покупок.",
+              "У Сбера есть экосистема, аудитория, «Спасибо». Но СберБанк Онлайн — про деньги, не про шопинг: покупка там не рождается.",
+              "Мерчантам не всегда выгодно переезжать на склады СберЛогистики. Зато продавать на их аудиторию без чужих складов и рисков — ниша открыта.",
+              "«Плати частями» может стать витриной и рекламной площадкой для брендов и блогеров.",
             ],
           },
         ],
@@ -80,14 +80,14 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             type: "square",
             src: "/images/plati-chastyami/problem-friction.webp",
-            alt: "Шесть точек трения в текущем опыте сервисов рассрочки",
+            alt: "Шесть точек трения в текущем опыте сервисов рассрочки",
             width: 1024,
             height: 1024,
           },
           {
             type: "square",
             src: "/images/plati-chastyami/competitors-ui.webp",
-            alt: "Интерфейсы условий рассрочки у конкурентов",
+            alt: "Интерфейсы условий рассрочки у конкурентов",
             width: 1022,
             height: 1022,
           },
@@ -108,21 +108,21 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
             ],
           },
           {
-            heading: "Лидер играет не по этим правилам",
+            heading: "Лидер играет не по этим правилам",
             lines: [
-              "«Халва» — юридически кредитная карта, а не рассрочка. Она не попадает под потолок 283-ФЗ и спокойно даёт 10–36 месяцев против наших четырёх к 2028 году.",
+              "«Халва» юридически — кредитка, не рассрочка. Закон 283-ФЗ её не касается: 10–36 месяцев против наших четырёх к 2028-му.",
             ],
           },
           {
-            heading: "Интересный факт о ЦА",
+            heading: "Интересный факт о ЦА",
             lines: [
-              "Женщины пользуются рассрочкой в 1,5 раза чаще мужчин — но среди ежемесячно активных пользователей отдельных приложений BNPL мужчин больше. Разрыв читается так: женщины чаще платят частями, мужчины чаще доходят до установки приложения.",
+              "Женщины пользуются рассрочкой в 1,5 раза чаще мужчин. Но среди активных пользователей отдельных BNPL-приложений мужчин больше: женщины чаще платят частями, мужчины — чаще ставят приложение.",
             ],
           },
         ],
       },
 
-      img("competitors-table", "Таблица сравнения BNPL-сервисов по условиям"),
+      img("competitors-table", "Таблица сравнения BNPL-сервисов по условиям"),
 
       {
         type: "text",
@@ -130,20 +130,20 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Преимущества",
             lines: [
-              "Уникальные данные. Сбер знает финансы 110 млн человек. Эту историю доверия невозможно скопировать или купить.",
+              "Сбер знает финансы 110 млн человек. Такую историю доверия не скопировать и не купить.",
             ],
           },
           {
-            heading: "В чём отстаёт",
+            heading: "В чём отстаёт",
             lines: [
-              "Поздний контакт: появляемся только в корзине, а не на витрине магазина.",
-              "Нет цифр для бизнеса: пока не можем доказать партнёрам свою ценность на графиках.",
+              "Поздний контакт: появляемся только в корзине, а не на витрине магазина.",
+              "Нет цифр для бизнеса: пока не можем доказать партнёрам свою ценность на графиках.",
             ],
           },
         ],
       },
 
-      img("hypotheses", "Шесть гипотез H1–H6 с метриками проверки"),
+      img("hypotheses", "Шесть гипотез H1–H6 с метриками проверки"),
 
       {
         type: "text",
@@ -151,32 +151,32 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Откуда взялись гипотезы",
             lines: [
-              "Гипотезы выросли из анализа рынка и конкурентов ещё до интервью. Четыре разговора часть подтвердили, часть заставили переформулировать.",
+              "Гипотезы родились из анализа рынка и конкурентов. Четыре интервью часть подтвердили, часть заставили переформулировать.",
             ],
           },
           {
             lines: [
-              "H3 закрывает дыру бизнес-модели: после 283-ФЗ конкуренты монетизируются кросс-селлом кредитов вместо штрафов, а у «Плати частями» такого канала нет. Решение — «скор доверия»: дисциплина в рассрочке конвертируется в покупку платных продуктов банка. В интервью гипотеза не проверялась — оценка требует когортного анализа, поэтому на защите её стоит честно назвать риском. Проверить качественно всё же можно: спрашивать не «взяли бы?», а о прошлом — предлагал ли банк кредит за аккуратные платежи и как респондент реагировал.",
+              "H3 закрывает дыру в бизнес-модели: после 283-ФЗ конкуренты зарабатывают на кросс-селле кредитов, а не на штрафах — у нас такого канала нет. Решение — «скор доверия»: дисциплина в рассрочке открывает платные продукты банка. В интервью это не проверялось — нужен когортный анализ, честно называю это риском. Проверить можно иначе: спрашивать не «взяли бы?», а предлагал ли банк кредит за аккуратные платежи — и как человек реагировал.",
             ],
           },
           {
             heading: "Интервью",
             lines: [
-              "3 голосовых сообщения и 1 офлайн. Выборка маленькая, но три ключевых вывода подтвердились у всех четырёх, а не у большинства. Интервью не просто подтвердили гипотезы — они трижды заставили переформулировать то, что казалось очевидным, а это ценнее, чем совпадение с первого предположения.",
+              "3 голосовых и 1 офлайн-интервью. Маленькая выборка, но три вывода подтвердились у всех четырёх. Главное — интервью трижды заставили переформулировать то, что казалось очевидным. Это ценнее, чем совпадение с первой гипотезой.",
             ],
           },
         ],
       },
 
-      { ...square("interview", "Расшифровка интервью с респондентом и голосовые сообщения", 1022), solo: true },
+      { ...square("interview", "Расшифровка интервью с респондентом и голосовые сообщения", 1022), solo: true },
 
       {
         type: "text",
         groups: [
           {
-            heading: "Добавил пять решений — и почему они зайдут",
+            heading: "Добавил пять решений — и почему они зайдут",
             lines: [
-              "Каждое опирается на то, что уже происходит с рынком и поведением людей сегодня, а не на предположение, что через пять лет всё станет иначе.",
+              "Каждое опирается на то, что уже происходит на рынке сегодня — не на прогноз на пять лет вперёд.",
             ],
           },
         ],
@@ -189,13 +189,13 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         type: "text",
         groups: [
           {
-            heading: "Я создал три персоны",
-            lines: ["Прогнал их по флоу, чтобы посмотреть, как они закроют свои потребности."],
+            heading: "Я создал три персоны",
+            lines: ["Прогнал их через флоу — проверить, закроют ли они свою потребность."],
           },
           {
             heading: "Анна",
             lines: [
-              "Вынужденная трата и запас доверия. Зарплатный клиент три года, недавно погасила рассрочку на телефон вовремя, и взяла новый. Но не вовремя сломалась стиральная машина — отложить нельзя. Ответ экрана: «да, потянешь» — с расчётом по её денежному потоку. Плюс её парень предложил помочь покрыть часть за телефон.",
+              "Вынужденная трата при хорошей истории. Зарплатный клиент три года, вовремя закрыла рассрочку на телефон, взяла новую. Тут сломалась стиральная машина — ждать нельзя. Экран отвечает «да, потянешь», считая по её денежному потоку. Парень предлагает закрыть часть за телефон.",
             ],
           },
         ],
@@ -208,44 +208,44 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         groups: [
           {
             lines: [
-              "Каталог → Карточка товара → В магазин → Оформление товара (+ бонусы Спасибо) → Ссылка поделится рассрочкой с Димой",
+              "Каталог → Карточка товара → В магазин → Оформление товара (+ бонусы Спасибо) → Ссылка поделится рассрочкой с Димой",
             ],
           },
         ],
       },
 
-      img("anna-flow", "Сценарий Анны: каталог, карточка товара и график платежей"),
+      img("anna-flow", "Сценарий Анны: каталог, карточка товара и график платежей"),
 
       {
         type: "text",
         groups: [
           {
             heading: "Дима",
-            lines: ["Три активные рассрочки, оформляет четвёртую — и уже после того, как помог Анне."],
+            lines: ["Три активные рассрочки, оформляет четвёртую — и уже после того, как помог Анне."],
           },
           {
             lines: [
-              "Дмитрий не берёт куртку. С этого же экрана он уходит в «Накопи до 14 % годовых»: деньги остаются в банке, покупка переносится. Сделки сегодня нет — но нет и просрочки через месяц, и человека, который после неё больше не откроет приложение. «Плати частями» зарабатывает на обороте и комиссии магазина, а не на чужих просрочках: одна сделка сегодня меняется на клиента, который возвращается.",
-              "Отложенная покупка — не потерянная, а сохранённый клиент.",
+              "Дима не берёт куртку — уходит в «Накопи под 14% годовых»: деньги остаются в банке, покупка откладывается. Сделки сегодня нет, но нет и просрочки через месяц, и клиента, который после неё не откроет приложение снова. Банк зарабатывает на обороте и комиссии магазина — не на чужих просрочках.",
+              "Отложенная покупка — не потерянная, а сохранённый клиент.",
             ],
           },
         ],
       },
 
-      img("persona-dima", "Персона Дима: выбирает куртку в магазине"),
+      img("persona-dima", "Персона Дима: выбирает куртку в магазине"),
 
       {
         type: "text",
         groups: [
           {
             lines: [
-              "Сканер → Экран предупреждения → Увидел баннер про вклад → Перешёл в СберБанк Онлайн → Оформил вклад, чтобы копить",
+              "Сканер → Экран предупреждения → Увидел баннер про вклад → Перешёл в СберБанк Онлайн → Оформил вклад, чтобы копить",
             ],
           },
         ],
       },
 
-      img("dima-flow", "Сценарий Димы: сканер QR, предупреждение о нагрузке и вклад"),
+      img("dima-flow", "Сценарий Димы: сканер QR, предупреждение о нагрузке и вклад"),
 
       {
         type: "text",
@@ -253,83 +253,83 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Мария",
             lines: [
-              "Выходит замуж и сразу переезжает. Два события подряд — свадьба и новоселье, и оба требуют вещей. Её боль: неловко говорить, что дарить. Не просить — подарят три чайника, а нужное придётся докупать самой. Боль гостей: не знают, что дарить, дублируют друг друга, несут конверт «на всякий случай». На втором поводе подряд фантазия заканчивается.",
+              "Выходит замуж и сразу переезжает — два повода подряд, и оба требуют вещей. Её боль: неловко просить конкретные подарки — не попросит, получит три чайника и всё равно докупит нужное сама. Боль гостей: не знают, что дарить, дублируют друг друга или несут конверт «на всякий случай».",
             ],
           },
         ],
       },
 
-      img("persona-maria", "Персона Мария: свадьба и список подарков"),
+      img("persona-maria", "Персона Мария: свадьба и список подарков"),
 
       {
         type: "text",
         groups: [
           {
             lines: [
-              "Собирает вишлист из каталога → Копирует ссылку на вишлист → Публикует в соцсетях или присылает в группу.",
-              "Гость переходит по ссылке → Оформляет у нас рассрочку (+ бонусы Спасибо, + новый пользователь)",
+              "Собирает вишлист из каталога → Копирует ссылку на вишлист → Публикует в соцсетях или присылает в группу.",
+              "Гость переходит по ссылке → Оформляет у нас рассрочку (+ бонусы Спасибо, + новый пользователь)",
             ],
           },
         ],
       },
 
-      img("maria-flow", "Сценарий Марии: вишлист и приглашение скинуться"),
+      img("maria-flow", "Сценарий Марии: вишлист и приглашение скинуться"),
 
       {
         type: "text",
         groups: [
           {
-            heading: "Если выбор поставщика станет обязательным, мы окажемся в лучшей позиции",
+            heading: "Если выбор поставщика станет обязательным, мы окажемся в лучшей позиции",
             lines: [
-              "Что будет, если примут закон, который уравняет шансы всех. И полки уравняются: цена, срок и комиссия у всех по закону одинаковы, а дистрибуция, на которой сегодня выигрывают конкуренты, перестаёт быть преимуществом. Нашими остаются бонусы «Спасибо», которых за рассрочку не даёт вообще никто на рынке при 98,9 млн участников программы. Остаётся экосистема, где зарплатный счёт и все рассрочки в одном графике.",
+              "Если закон уравняет условия для всех — цену, срок, комиссию — дистрибуция конкурентов перестанет быть преимуществом. У нас останутся бонусы «Спасибо» за рассрочку — таких нет ни у кого при 98,9 млн участников программы. И экосистема, где зарплата и все рассрочки — на одном графике.",
             ],
           },
         ],
       },
 
-      square("promo", "Промо-механика: розыгрыш за оплату частями на терминалах Сбера", 1022),
+      square("promo", "Промо-механика: розыгрыш за оплату частями на терминалах Сбера", 1022),
 
       {
         type: "text",
         groups: [
           {
-            heading: "Помощник знает тебя, а не только моду",
+            heading: "Помощник знает тебя, а не только моду",
             lines: [
-              "Помощник знает, что у тебя уже есть — пальто, диван, стиральную машину. Поэтому на «хочу перестановку, нужно кресло» он отвечает не каталогом на тысячу позиций, а несколькими вариантами под ту мебель, что уже стоит в комнате, и под привычный бюджет. Те же данные, которыми экран решения отвечает «потянешь ли ты», здесь отвечают «подойдёт ли тебе».",
+              "Помощник знает, что у тебя уже есть — пальто, диван, стиральную машину. На «хочу кресло для перестановки» он отвечает не каталогом на тысячу позиций, а парой вариантов под комнату и бюджет. Те же данные, что считают «потянешь ли», здесь отвечают «подойдёт ли».",
             ],
           },
         ],
       },
 
-      img("assistant", "Чат с ИИ-помощником для подбора товаров"),
+      img("assistant", "Чат с ИИ-помощником для подбора товаров"),
       img("assistant-cards", "Экраны: поделиться рассрочкой, умный помощник, контроль баланса"),
-      img("catalog", "Каталог со скидками и подборками"),
-      img("stories", "Сторис и контент блогеров в ленте"),
-      img("product", "Карточка товара с выбором размера"),
-      img("wishlist", "Вишлист и избранные товары"),
+      img("catalog", "Каталог со скидками и подборками"),
+      img("stories", "Сторис и контент блогеров в ленте"),
+      img("product", "Карточка товара с выбором размера"),
+      img("wishlist", "Вишлист и избранные товары"),
       img("payment", "Оформление платежа"),
 
       {
         type: "text",
-        groups: [{ lines: ["Интеграция в СберБанк Онлайн"] }],
+        groups: [{ lines: ["Интеграция в СберБанк Онлайн"] }],
       },
 
-      img("sber-online", "Интеграция рассрочек в СберБанк Онлайн"),
+      img("sber-online", "Интеграция рассрочек в СберБанк Онлайн"),
       img("icons", "Набор 3D-иконок для интерфейса"),
 
       {
         type: "text",
         groups: [
           {
-            heading: "Спасибо за внимание!",
+            heading: "Спасибо за внимание!",
             lines: [
-              "Через пять лет «Плати частями» — способ не занимать, а не способ занять. Сервис считает нагрузку до покупки и показывает выходы: другой срок, часть суммы своими, перенос платежа — или платёж от близкого, который ничем себя не обязывает. Ссылка в соцсетях превращает событие в повод скинуться: вместо нового кредита — деньги внутри своего круга и новые пользователи не из рекламы, а по приглашению. Бизнесу это даёт покупателя, который пришёл за покупкой по средствам и вернётся, потому что не остался с долгом.",
+              "Через пять лет «Плати частями» — способ не копить долг, а не способ занять. Сервис считает нагрузку до покупки и предлагает выходы: другой срок, часть суммы своими, перенос платежа или оплата от близкого без обязательств. Ссылка в соцсетях превращает повод в предложение скинуться — вместо кредита деньги остаются внутри круга, а новые пользователи приходят по приглашению, не по рекламе. Бизнесу это даёт покупателя, который платит по средствам и возвращается, потому что не остался в долгах.",
             ],
           },
         ],
       },
 
-      square("share", "Отправка ссылки на рассрочку в мессенджере", 1022),
+      square("share", "Отправка ссылки на рассрочку в мессенджере", 1022),
     ],
   },
   en: {
@@ -344,7 +344,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         groups: [
           {
             lines: [
-              "Marketplaces have taken over the market, while the potential of BNPL apps remains untapped. I wanted to break the stereotype of complicated paperwork by making installment payments a seamless social experience — both online and for offline QR-code payments.",
+              "Marketplaces have taken over the market, while BNPL's potential stays untapped. I turned installments into a simple social experience — online and for QR-code payments.",
             ],
           },
           {
@@ -366,15 +366,15 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Problem",
             lines: [
-              "Installment apps all look alike: inside is a list of the bank's partner sites — walk in and pick a store you like. Sounds simple, but behind that simplicity hides a chain of friction that kills the desire to use the service before the purchase even happens.",
+              "Installment apps all look alike: a list of the bank's partner stores, pick one and go. Looks simple, but behind it is friction that kills the urge to buy before checkout even starts.",
             ],
           },
           {
             heading: "Why “Pay in Installments”",
             lines: [
-              "Sber has the ecosystem, the audience, and Spasibo bonus points, but “Pay in Installments” loses on experience. SberBank Online is about managing money, not shopping: a purchase is born in a different state of mind and doesn't come up among your bills.",
-              "It's not always worth it for merchants to move onto SberLogistics warehouses. But selling to a huge audience with no tie to someone else's infrastructure and no extra risk is an offer that's hard to refuse. Which means the niche is open.",
-              "“Pay in Installments” can become a storefront and an ad platform for brands and bloggers, keeping the audience inside one shopping flow.",
+              "Sber has the ecosystem, the audience, Spasibo bonus points. But SberBank Online is about money, not shopping — a purchase just doesn't start there.",
+              "Moving onto SberLogistics warehouses isn't always worth it for merchants. But selling to that audience with no warehouses or risk of their own — that niche is open.",
+              "“Pay in Installments” can become a storefront and ad platform for brands and bloggers.",
             ],
           },
         ],
@@ -416,13 +416,13 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "The leader doesn't play by these rules",
             lines: [
-              "“Khalva” is legally a credit card, not an installment plan. It doesn't fall under the cap of Federal Law 283-FZ and comfortably offers 10–36 months against our four by 2028.",
+              "“Khalva” is legally a credit card, not an installment plan. Federal Law 283-FZ doesn't apply to it: 10–36 months against our four by 2028.",
             ],
           },
           {
             heading: "An interesting fact about the audience",
             lines: [
-              "Women use installment plans 1.5x more often than men — but among monthly active users of standalone BNPL apps, men are the majority. The gap reads like this: women pay in installments more often, men are more likely to actually install the app.",
+              "Women use installment plans 1.5x more than men. But among active users of standalone BNPL apps, men are the majority: women pay in installments more, men install the app more.",
             ],
           },
         ],
@@ -436,7 +436,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Advantages",
             lines: [
-              "Unique data. Sber knows the finances of 110 million people. That history of trust can't be copied or bought.",
+              "Sber knows the finances of 110 million people. That kind of trust can't be copied or bought.",
             ],
           },
           {
@@ -457,18 +457,18 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Where the hypotheses came from",
             lines: [
-              "The hypotheses grew out of market and competitor analysis before the interviews even started. Four conversations confirmed some of them and forced others to be reframed.",
+              "The hypotheses came from market and competitor analysis. Four interviews confirmed some and forced others to be reframed.",
             ],
           },
           {
             lines: [
-              "H3 closes a gap in the business model: after 283-FZ, competitors monetize through credit cross-sell instead of late fees, and “Pay in Installments” has no such channel. The solution is a “trust score”: discipline in installment payments converts into purchases of the bank's paid products. This hypothesis wasn't tested in the interviews — assessing it needs cohort analysis, so at the defense it's honest to call it a risk. It can still be checked qualitatively, though: instead of asking “would you take it?”, ask about the past — has the bank ever offered a loan for on-time payments, and how did the respondent react.",
+              "H3 closes a gap in the business model: after 283-FZ, competitors earn on credit cross-sell, not late fees — we have no such channel. The fix is a “trust score”: discipline in installments unlocks paid bank products. The interviews didn't test this — it needs cohort analysis, so I'll call it a risk, honestly. It can still be checked differently: not “would you take it?” but whether the bank ever offered a loan for on-time payments, and how people reacted.",
             ],
           },
           {
             heading: "Interviews",
             lines: [
-              "3 voice messages and 1 in person. The sample is small, but three key findings held up across all four, not just a majority. The interviews didn't just confirm the hypotheses — three times they forced a reframe of something that seemed obvious, which is worth more than confirming the first guess.",
+              "3 voice messages and 1 in-person interview. A small sample, but three findings held up across all four. More importantly, the interviews forced three reframes of what seemed obvious — worth more than confirming the first guess.",
             ],
           },
         ],
@@ -482,7 +482,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "I added five solutions — and why they'll land",
             lines: [
-              "Each one builds on what's already happening in the market and in people's behavior today, not on an assumption that everything will be different in five years.",
+              "Each one builds on what's already happening in the market today — not a five-year forecast.",
             ],
           },
         ],
@@ -496,12 +496,12 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
         groups: [
           {
             heading: "I created three personas",
-            lines: ["I ran them through the flow to see how each would get their needs met."],
+            lines: ["I ran them through the flow to see if it met their need."],
           },
           {
             heading: "Anna",
             lines: [
-              "A forced expense and a reserve of trust. A payroll-card client for three years, she recently paid off her phone installment on time and took out a new one. Then the washing machine broke at the worst moment — it can't wait. The screen's answer: “yes, you can handle it” — based on her cash flow. Plus her boyfriend offered to help cover part of the phone.",
+              "A forced expense with a good track record. A payroll client for three years, she paid off her phone plan on time and took a new one. Then the washing machine broke — it can't wait. The screen says “yes, you can handle it,” based on her cash flow. Her boyfriend offers to cover part of the phone.",
             ],
           },
         ],
@@ -531,7 +531,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           },
           {
             lines: [
-              "Dmitry doesn't buy the jacket. From this same screen he moves into “Save at up to 14% APY”: the money stays with the bank, the purchase is postponed. There's no deal today — but there's also no missed payment a month from now, and no person who, after that, never opens the app again. “Pay in Installments” earns on turnover and the store's commission, not on other people's missed payments: one deal today trades for a customer who comes back.",
+              "Dima skips the jacket — moves to “Save at 14% APY”: the money stays with the bank, the purchase waits. No deal today, but also no missed payment next month, and no customer who never opens the app again after that. The bank earns on turnover and the store's commission — not on other people's missed payments.",
               "A deferred purchase isn't a lost one — it's a kept customer.",
             ],
           },
@@ -559,7 +559,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Maria",
             lines: [
-              "Getting married and moving right after. Two events back to back — a wedding and a housewarming, both requiring things. Her pain: it feels awkward to say what she wants as gifts. If she doesn't ask, she'll get three kettles and have to buy the things she actually needs herself. The guests' pain: they don't know what to give, they duplicate each other, and they bring an envelope “just in case.” By the second occasion in a row, everyone's out of ideas.",
+              "Getting married and moving right after — two occasions back to back, both needing things. Her pain: it feels awkward to ask for specific gifts — if she doesn't, she'll get three kettles and still have to buy what she needs herself. The guests' pain: they don't know what to give, duplicate each other, or bring an envelope “just in case.”",
             ],
           },
         ],
@@ -587,7 +587,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "If provider choice becomes mandatory, we'll be in a better position",
             lines: [
-              "What happens if a law passes that levels the playing field for everyone. The shelves level out too: price, term, and commission become the same for everyone by law, and the distribution competitors win on today stops being an advantage. What stays ours are the Spasibo bonus points — nobody else on the market gives those for installment payments, with 98.9 million program members. What also stays is the ecosystem, where the payroll account and every installment plan live on one timeline.",
+              "If a law levels the terms for everyone — price, term, commission — competitors' distribution stops being an advantage. We'd still have Spasibo bonus points for installments, which nobody else offers, with 98.9 million program members. And the ecosystem, where payroll and every installment plan sit on one timeline.",
             ],
           },
         ],
@@ -601,7 +601,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "The assistant knows you, not just trends",
             lines: [
-              "The assistant knows what you already own — a coat, a sofa, a washing machine. So to “I want to rearrange, I need an armchair” it doesn't answer with a thousand-item catalog, but with a few options that fit the furniture already in the room, and your usual budget. The same data the decision screen uses to answer “can you afford it” answers “will it suit you” here.",
+              "The assistant knows what you already own — a coat, a sofa, a washing machine. To “I want an armchair for a rearrange” it answers not with a thousand-item catalog, but a couple of options that fit the room and the budget. The same data that answers “can you afford it” here answers “will it fit.”",
             ],
           },
         ],
@@ -629,7 +629,7 @@ export const platiChastyami: Record<"ru" | "en", CaseStudyData> = {
           {
             heading: "Thank you for your attention!",
             lines: [
-              "In five years, “Pay in Installments” is a way not to borrow — not a way to borrow. The service calculates debt load before the purchase and shows the exits: a different term, part of the sum paid upfront, a postponed payment — or a payment from a loved one who takes on no obligation by making it. A social-media link turns an occasion into a reason to chip in: instead of a new loan, money stays within your own circle, and new users arrive by invitation, not advertising. For the business, that means a customer who came to buy within their means and comes back, because they weren't left with debt.",
+              "In five years, “Pay in Installments” is a way not to pile up debt — not a way to borrow. The service calculates debt load before the purchase and offers exits: a different term, part of the sum upfront, a postponed payment, or a payment from a loved one with no obligation attached. A social-media link turns an occasion into a chip-in — instead of a loan, the money stays within the circle, and new users arrive by invitation, not by ads. For the business, that means a customer who pays within their means and comes back, because they weren't left in debt.",
             ],
           },
         ],

@@ -5,7 +5,7 @@ const video: CaseVideoBlock = {
   src: "/video/pixel-fx/preview.mp4",
   webm: "/video/pixel-fx/preview.webm",
   poster: "/images/pixel-fx/preview-poster.webp",
-  alt: "Pixel FX — интерфейс плагина с пиксельным конвейером эффектов",
+  alt: "Pixel FX — интерфейс плагина с пиксельным конвейером эффектов",
   width: 1024,
   height: 512,
   shape: "wide",

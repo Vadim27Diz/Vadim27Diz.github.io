@@ -2,8 +2,8 @@ import type { CaseStudyData } from "./blocks";
 
 /**
  * Демо-страница вне реестра кейсов (src/content/cases/index.ts) — черновик для
- * проверки верстки таблицы конкурентного анализа в сетке кейса на ресайзе.
- * Маршрут: /demo/competitive-table (src/App.tsx). Не финальный контент.
+ * проверки верстки таблицы конкурентного анализа в сетке кейса на ресайзе.
+ * Маршрут: /demo/competitive-table (src/App.tsx). Не финальный контент.
  */
 export const demoCompetitiveTable: CaseStudyData = {
   slug: "demo-competitive-table",
@@ -16,7 +16,7 @@ export const demoCompetitiveTable: CaseStudyData = {
         {
           heading: "Конкурентный анализ",
           lines: [
-            "Сравнили точку входа в редактор и первые шаги у трёх конкурентов — ниже таблица на всю ширину, а не в узкую колонку текста.",
+            "Сравнили точку входа в редактор и первые шаги у трёх конкурентов — ниже таблица на всю ширину, а не в узкую колонку текста.",
           ],
         },
       ],
@@ -28,12 +28,12 @@ export const demoCompetitiveTable: CaseStudyData = {
       columns: ["Mega Creator", "Adobe Express", "VistaCreate", "Наше решение"],
       rows: [
         {
-          label: "Вход в редактор",
+          label: "Вход в редактор",
           values: [
             "1 шаг, без регистрации",
             "4 шага, логин + подписка",
             "4 шага, логин + опрос",
-            "0 шагов: вход прямо из кабинета",
+            "0 шагов: вход прямо из кабинета",
           ],
         },
         {
@@ -50,7 +50,7 @@ export const demoCompetitiveTable: CaseStudyData = {
           values: [
             "Выбор внутри редактора",
             "Первый шаг (ручной ввод)",
-            "Из шаблона",
+            "Из шаблона",
             "Жёстко задан слотом кампании",
           ],
         },
@@ -58,7 +58,7 @@ export const demoCompetitiveTable: CaseStudyData = {
           label: "Панель слоёв",
           values: [
             "Нет",
-            "Есть (с превью иерархии)",
+            "Есть (с превью иерархии)",
             "Скрыта",
             "Семантические слои («Текст», «Фон»)",
           ],
