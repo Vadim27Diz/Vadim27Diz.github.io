@@ -13,8 +13,47 @@
   transform: scale(0.2273);
 }
 
+.shell,
+.label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  white-space: nowrap;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 999;
+  transform: scale(0);
+}
+
+.shell {
+  background: var(--color-surface);
+  color: var(--color-surface);
+}
+
+.label {
+  background: transparent;
+  color: var(--color-surface);
+  opacity: 0.45;
+}
+
+.arrow {
+  width: 10px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
 @media (pointer: coarse) {
-  .cursor {
+  .cursor,
+  .shell,
+  .label {
     display: none;
   }
 }

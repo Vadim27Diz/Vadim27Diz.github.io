@@ -34,8 +34,8 @@
   right: var(--page-pad);
   gap: var(--space-2);
   font-family: var(--font-mono);
-  font-size: var(--font-size-control);
-  line-height: var(--line-height-control);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
 }
 
 /*

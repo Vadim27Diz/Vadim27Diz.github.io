@@ -51,7 +51,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="hover"
+            data-cursor="case"
             draggable={false}
           >
             <CaseMedia media={project.media} priority={priority} />
@@ -60,7 +60,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           <Link
             className={styles.mediaLink}
             to={href}
-            data-cursor="hover"
+            data-cursor="case"
             draggable={false}
           >
             <CaseMedia media={project.media} priority={priority} />
