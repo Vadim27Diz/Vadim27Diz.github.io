@@ -123,6 +123,21 @@ export const projects: Record<"ru" | "en", Project[]> = {
       },
       externalUrl: "https://buildin.ai/share/0dab20ef-157d-45c2-a0ef-57b8941776bd?code=0EDHCX",
     },
+    {
+      slug: "trassir-mobile-payments",
+      title: "Trassir",
+      description:
+        "Спроектировал и внедрил встроенную систему оплаты с привязкой карты, автоматическим списанием средств с общего баланса и управлением способами оплаты.",
+      meta: { product: "Trassir", platform: "iOS, Android", role: "дизайнер продукта", year: "2024" },
+      media: {
+        type: "image",
+        src: "/images/trassir-mobile-payments.webp",
+        alt: "Trassir mobile payments",
+        width: 1248,
+        height: 936,
+      },
+      externalUrl: "https://buildin.ai/share/ff1f00d8-3f6e-491c-90e7-dec9c48b0032?code=0EDHCX",
+    },
   ],
   en: [
     {
@@ -224,6 +239,21 @@ export const projects: Record<"ru" | "en", Project[]> = {
         height: 1248,
       },
       externalUrl: "https://buildin.ai/share/0dab20ef-157d-45c2-a0ef-57b8941776bd?code=0EDHCX",
+    },
+    {
+      slug: "trassir-mobile-payments",
+      title: "Trassir",
+      description:
+        "Designed and implemented an in-app payment system with card linking, automatic charge-off from the shared balance, and payment method management.",
+      meta: { product: "Trassir", platform: "iOS, Android", role: "Product Designer", year: "2024" },
+      media: {
+        type: "image",
+        src: "/images/trassir-mobile-payments.webp",
+        alt: "Trassir mobile payments",
+        width: 1248,
+        height: 936,
+      },
+      externalUrl: "https://buildin.ai/share/ff1f00d8-3f6e-491c-90e7-dec9c48b0032?code=0EDHCX",
     },
   ],
 };

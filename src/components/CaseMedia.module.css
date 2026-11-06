@@ -28,8 +28,8 @@
   margin: 0;
   padding: 0 var(--space-3);
   font-family: var(--font-mono);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
+  font-size: var(--font-size-control);
+  line-height: var(--line-height-control);
   color: var(--color-text-secondary);
   text-align: center;
 }

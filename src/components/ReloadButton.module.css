@@ -8,8 +8,8 @@
   border: 0;
   background: none;
   font-family: var(--font-mono);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
+  font-size: var(--font-size-control);
+  line-height: var(--line-height-control);
   color: var(--color-link);
   cursor: pointer;
 }

@@ -46,10 +46,12 @@
   --font-sans: "PT Sans", Arial, "Helvetica Neue", sans-serif;
   --font-mono:
     "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-size-base: 13px;
-  --line-height-base: 20px;
-  --line-height-heading: 19px;
+  --font-size-base: 15px; /* Body 2 / H3, поднято с 13px по правке 2026-11-06 */
+  --line-height-base: 22px; /* Body 2, поднято с 20px по правке 2026-11-06 */
+  --line-height-heading: 22px; /* H3, поднято с 19px по правке 2026-11-06 */
   --letter-spacing-heading: 0.13px;
+  --font-size-control: 13px; /* замороженный старый размер — ссылки/контролы на Roboto Mono, вне правки Body2/H3 */
+  --line-height-control: 20px;
   --font-size-caption: 11px;
   --line-height-caption: 19px;
   --line-height-link: 21px;

@@ -74,14 +74,16 @@
 
 | Стиль | Шрифт | Размер/высота строки | Трекинг | Токены | Где используется |
 |---|---|---|---|---|---|
-| **H3** | PT Sans Bold (700) | 13px / 19px | 0.13px | `--font-size-base` / `--line-height-heading` / `--letter-spacing-heading` | Заголовок текстового блока в стиль-гайде («Header», жирный) — и заголовки секций (`.heading`) на страницах кейсов, см. `CaseBlocks.module.css` |
+| **H3** | PT Sans Bold (700) | 15px / 22px | 0.13px | `--font-size-base` / `--line-height-heading` / `--letter-spacing-heading` | Заголовок текстового блока в стиль-гайде («Header», жирный) — и заголовки секций (`.heading`) на страницах кейсов, см. `CaseBlocks.module.css` |
 | **H2** | PT Sans Regular (400) | 16px / 20px | — | `--font-size-stat` / `--line-height-base` | Крупные цифры статистики (`statPairs`, Figma node 656:5481 «Доля пользователей», кейс «Плати частями») |
-| **Body 2** | PT Sans Regular (400) | 13px / 20px | — | `--font-size-base` / `--line-height-base` | Весь обычный текст: био, заголовки и описания кейсов, лейблы продукт/платформа/роль/год, ячейки таблицы |
-| **mono Link 1** | Roboto Mono Regular (400) | 13px / 21px | — | `--font-size-base` / `--line-height-link` | Ссылки: cv/telegram/linkedin/mail, «Link →» |
+| **Body 2** | PT Sans Regular (400) | 15px / 22px | — | `--font-size-base` / `--line-height-base` | Весь обычный текст: био, заголовки и описания кейсов, лейблы продукт/платформа/роль/год, ячейки таблицы |
+| **mono Link 1** | Roboto Mono Regular (400) | 13px / 21px | — | `--font-size-control` / `--line-height-link` | Ссылки: cv/telegram/linkedin/mail, «Link →» |
 | **mono Caption 1** | Roboto Mono Regular (400) | 11px / 19px | — | `--font-size-caption` / `--line-height-caption` | Копирайт «© Reznikov Vadim, 2026» |
-| **mono controls 1** | Roboto Mono Regular (400) | 13px / 20px | — | `--font-size-base` / `--line-height-base` | RU/ENG-переключатель (новый блок, ещё не реализован на сайте) |
+| **mono controls 1** | Roboto Mono Regular (400) | 13px / 20px | — | `--font-size-control` / `--line-height-control` | RU/ENG-переключатель, кнопка Reload, текст плейсхолдера медиа, ссылка на `NotFoundPage` |
 
 Важно: внутри карточки стиль-гайда «Header»/«Lable» набраны обычным **Body 2** (не жирным) — жирный **H3** применяется только к заголовку отдельного текстового блока. Разница между ними — не вес шрифта визуально одинаковых слов, а контекст (заголовок секции vs лейбл внутри карточки).
+
+⚠️ Правка 2026-11-06: **Body 2** и **H3** увеличены с 13px/20px (H3 — с 13px/19px) до 15px/22px. `--font-size-base`/`--line-height-base` — общие токены для Body2/H3, но их же читали Roboto Mono-ссылки и контролы (совпадение по значению, не по смыслу); чтобы не вырастить и их, значения этих мест явно заморожены на новых токенах `--font-size-control` (13px) / `--line-height-control` (20px) — см. `Hero.module.css` (`.localeInline`, `.links a`), `CaseMedia.module.css` (`.placeholderText`), `ReloadButton.module.css`, `NavBar.module.css`/`CaseNavBar.module.css` (`.right`), `CaseBlocks.module.css` (`.link`), `NotFoundPage.module.css` (`.link`). Трекинг H3 (`--letter-spacing-heading`) не менялся — в задаче не упоминался.
 
 ## Отступы
 | Токен | Значение | Где используется |
