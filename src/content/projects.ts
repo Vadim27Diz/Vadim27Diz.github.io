@@ -55,7 +55,7 @@ export const projects: Record<"ru" | "en", Project[]> = {
       slug: "sportmaster-banner-builder",
       title: "Плати частями",
       description:
-        "Переосмысление реального BNPL-сервиса Сбербанка «Плати частями». Самостоятельная платформа с охватом вне банка открывает новый канал выручки — рекламу блогеров и брендов без склада и риска, плюс механика «закрыть рассрочку близкого без обязательства» через Sber ID.",
+        "Переосмысление BNPL-сервиса Сбербанка «Плати частями»: самостоятельная платформа с рекламным каналом для блогеров и брендов — без склада и риска, плюс механика закрыть рассрочку близкого через Sber ID.",
       meta: { product: "продуктовый концепт", platform: "iOS", role: "дизайнер продукта", year: "2026" },
       media: {
         type: "image",
@@ -172,7 +172,7 @@ export const projects: Record<"ru" | "en", Project[]> = {
       slug: "sportmaster-banner-builder",
       title: "Pay in Installments",
       description:
-        "A reimagining of Sberbank's real BNPL service, \u2018Pay in Installments.\u2019 A standalone platform reaching beyond the bank opens a new revenue channel \u2014 advertising for bloggers and brands with no inventory or risk \u2014 plus a mechanic for covering a loved one\u2019s installment plan with no obligation, via Sber ID.",
+        "A reimagining of Sberbank’s BNPL service, ‘Pay in Installments.’ A standalone platform with an ad channel for bloggers and brands — no inventory, no risk — plus a mechanic for covering a loved one’s installment plan via Sber ID.",
       meta: { product: "product concept", platform: "iOS", role: "Product Designer", year: "2026" },
       media: {
         type: "image",
